@@ -1,0 +1,8 @@
+.navLink {
+  color: var(--text-color);
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--primary-color);
+}
