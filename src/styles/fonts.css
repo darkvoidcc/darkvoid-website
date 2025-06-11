@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Outfit ExtraLight';
+  src: url('../assets/fonts/Outfit-ExtraLight.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Outfit Thin';
+  src: url('../assets/fonts/Outfit-Thin.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Outfit Light';
+  src: url('../assets/fonts/Outfit-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Outfit Medium';
+  src: url('../assets/fonts/Outfit-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Outfit Regular';
+  src: url('../assets/fonts/Outfit-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Outfit SemiBold';
+  src: url('../assets/fonts/Outfit-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Outfit Bold';
+  src: url('../assets/fonts/Outfit-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Outfit ExtraBold';
+  src: url('../assets/fonts/Outfit-ExtraBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Outfit Black';
+  src: url('../assets/fonts/Outfit-Black.otf') format('opentype');
+}

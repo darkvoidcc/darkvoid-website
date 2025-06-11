@@ -14,58 +14,57 @@ import styles from './Header.module.css';
  */
 export function Header(): JSX.Element {
   return (
-    <header className="flex items-center justify-between px-9 py-4 bg-black/80">
+    <header className={styles.header}>
       {/* Logo */}
       <Icon
         name="logo"
-        size={40}
-        className="logo-icon w-28 h-auto"
+        className={styles.logoIcon}
       />
       {/* Navigation Links */}
-      <nav className="flex items-center gap-6">
+      <nav className={styles.nav}>
         <Link
           href="/products"
           icon={
             <Icon
               name="products"
-              size={20}
+              className={styles.icon}
             />
           }
           text="Products"
-          className={`link gap-1 transition-colors ${styles.navLink}`}
+          className={`${styles.link} txt-body`}
         />
         <Link
           href="/resources"
           icon={
             <Icon
               name="misc"
-              size={20}
+              className={styles.icon}
             />
           }
           text="Resources"
-          className={`link transition-colors ${styles.navLink}`}
+          className={`${styles.link} txt-body`}
         />
         <Link
           href="/status"
           icon={
             <Icon
               name="status"
-              size={20}
+              className={styles.icon}
             />
           }
           text="Status"
-          className={`link transition-colors ${styles.navLink}`}
+          className={`${styles.link} txt-body`}
         />
         <Link
           href="/contact"
           icon={
             <Icon
               name="contact"
-              size={20}
+              className={styles.icon}
             />
           }
           text="Contact"
-          className={`link transition-colors ${styles.navLink}`}
+          className={`${styles.link} txt-body`}
         />
       </nav>
     </header>

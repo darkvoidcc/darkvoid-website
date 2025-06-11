@@ -85,7 +85,6 @@ interface IconProps {
  * @description This component renders an SVG icon based on the provided name, size, color, and className.
  * @param {Object} props - The properties for the icon component.
  * @param {IconName} props.name - The name of the icon to display.
- * @param {number} [props.size=24] - The size of the icon in pixels. Default is 24.
  * @param {string} [props.color='currentColor'] - The color of the icon. Default is 'currentColor'.
  * @param {string} [props.className=''] - Additional CSS classes to apply to the icon.
  * @returns JSX.Element
@@ -96,15 +95,12 @@ interface IconProps {
  */
 export function Icon({
   name,
-  size = 24,
   color = 'currentColor',
   className = '',
 }: IconProps) {
   const SvgIcon = iconMap[name];
   return (
     <SvgIcon
-      width={size}
-      height={size}
       fill={color}
       className={className}
       style={{ display: 'inline-block', verticalAlign: 'middle' }}

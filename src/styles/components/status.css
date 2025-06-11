@@ -1,0 +1,37 @@
+.status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: var(--caption-font-size);
+  display: inline-block;
+}
+
+.status.soon {
+  color: var(--status-soon);
+  background-color: var(--status-soon-bg);
+}
+
+.status.detected {
+  color: var(--status-detected);
+  background-color: var(--status-detected-bg);
+}
+
+.status.undetected {
+  color: var(--status-undetected);
+  background-color: var(--status-undetected-bg);
+}
+
+.status.up-to-date {
+  color: var(--status-up-to-date);
+  background-color: var(--status-up-to-date-bg);
+}
+
+.status.in-maintenance {
+  color: var(--status-in-maintenance);
+  background-color: var(--status-in-maintenance-bg);
+}
+
+.status.updating {
+  color: var(--status-updating);
+  background-color: var(--status-updating-bg);
+}

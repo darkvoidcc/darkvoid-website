@@ -1,0 +1,16 @@
+@import './variables.css';
+@import './fonts.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--outfit-regular);
+  font-size: var(--body-font-size);
+  line-height: 1.5;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

@@ -1,0 +1,11 @@
+.background-gradient {
+  position: absolute;
+  top: -120px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: url('./assets/images/Gradient.webp') no-repeat center top;
+  background-size: cover;
+  pointer-events: none;
+}
