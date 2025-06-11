@@ -6,7 +6,6 @@ import styles from './Header.module.css';
 /**
  * Header Component
  * @description Main navigation header component with links to different sections
- * @returns {JSX.Element} The rendered header component
  * @version 1.0.0
  * @author Neodevils
  * @example
@@ -17,7 +16,7 @@ export function Header(): JSX.Element {
     <header className={styles.header}>
       {/* Logo */}
       <Icon
-        name="logo"
+        name="fullLogo"
         className={styles.logoIcon}
       />
       {/* Navigation Links */}

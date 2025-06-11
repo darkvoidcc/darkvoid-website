@@ -1,5 +1,6 @@
 import './App.css';
 import { Header } from './components/Header';
+import { Main } from './components/Main';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       style={{ position: 'relative', minHeight: '100vh' }}>
       <div className="background-gradient" />
       <Header />
+      <Main />
     </div>
   );
 }

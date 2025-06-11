@@ -11,6 +11,7 @@ import { ReactComponent as Customization } from '../assets/icons/Customization I
 import { ReactComponent as ErrorIcon } from '../assets/icons/Error Icon.svg';
 import { ReactComponent as Exploit } from '../assets/icons/Exploit Icon.svg';
 import { ReactComponent as Key } from '../assets/icons/Key Icon.svg';
+import { ReactComponent as FullLogo } from '../assets/icons/Full Logo.svg';
 import { ReactComponent as Logo } from '../assets/icons/Logo.svg';
 import { ReactComponent as Maintance } from '../assets/icons/Maintance Icon.svg';
 import { ReactComponent as Misc } from '../assets/icons/Misc Icon.svg';
@@ -35,6 +36,7 @@ export type IconName =
   | 'error'
   | 'exploit'
   | 'key'
+  | 'fullLogo'
   | 'logo'
   | 'maintance'
   | 'misc'
@@ -61,6 +63,7 @@ const iconMap: Record<
   error: ErrorIcon,
   exploit: Exploit,
   key: Key,
+  fullLogo: FullLogo,
   logo: Logo,
   maintance: Maintance,
   misc: Misc,
@@ -75,23 +78,21 @@ const iconMap: Record<
 
 interface IconProps {
   name: IconName;
-  size?: number;
   color?: string;
   className?: string;
 }
 
 /**
  * Icon component for displaying SVG icons as React components.
- * @description This component renders an SVG icon based on the provided name, size, color, and className.
+ * @description This component renders an SVG icon based on the provided name, color, and className.
  * @param {Object} props - The properties for the icon component.
  * @param {IconName} props.name - The name of the icon to display.
  * @param {string} [props.color='currentColor'] - The color of the icon. Default is 'currentColor'.
  * @param {string} [props.className=''] - Additional CSS classes to apply to the icon.
- * @returns JSX.Element
  * @version 1.0.0
  * @author Neodevils
  * @example
- * <Icon name="products" size={32} color="#000" className="custom-icon" />
+ * <Icon name="products" color="#000" className="custom-icon" />
  */
 export function Icon({
   name,

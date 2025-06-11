@@ -15,7 +15,6 @@ interface LinkProps {
  * @param {React.ReactNode} props.icon The icon to display next to the text.
  * @param {string} props.text The text to display in the link.
  * @param {string} [props.className] Additional CSS classes to apply to the link.
- * @returns {JSX.Element} The rendered link component.
  * @version 1.0.0
  * @author Neodevils
  * @example

@@ -1,0 +1,34 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1,
+p {
+  mix-blend-mode: difference;
+  text-shadow: var(--text-inner-shadow);
+  color: var(--text-color-secondary);
+  text-align: center;
+}
+
+p {
+  mix-blend-mode: luminosity;
+  text-shadow: none;
+  color: var(--text-primary-color);
+}
+
+.logoIcon {
+  width: 2em;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: var(--padding-6);
+}
