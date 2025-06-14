@@ -34,7 +34,7 @@
 /* ---- Emphasis ---- */
 .txt-emphasis {
   font-family: var(--emphasis);
-  font-size: clamp(1rem, 2vw + 0.125rem, 1.5rem);
+  font-size: clamp(0.5rem, 1.5vw + 0.125rem, 0.7rem);
   letter-spacing: -0.01em;
   line-height: 1.3;
 }

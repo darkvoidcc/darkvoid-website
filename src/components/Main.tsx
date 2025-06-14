@@ -1,6 +1,8 @@
 import { JSX } from 'react';
 import { Icon } from './Icon';
+import { Button } from './Button';
 import styles from './Main.module.css';
+import loaderSection from '../assets/images/Loader section.webp';
 
 /**
  * Main component
@@ -24,6 +26,20 @@ export function Main(): JSX.Element {
           accounts.
         </p>
       </div>
+      <section className="main-section">
+        <Button
+          onClick={() => window.open('/products', '_self')}
+          icon={<Icon name="crown" />}>
+          Become MVP
+        </Button>
+        <div className={styles.loaderImageWrapper}>
+          <img
+            src={loaderSection}
+            alt=""
+            className={styles.loaderImage}
+          />
+        </div>
+      </section>
     </main>
   );
 }

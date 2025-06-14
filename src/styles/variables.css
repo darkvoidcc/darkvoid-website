@@ -39,7 +39,11 @@
     1.5vw + 0.125rem,
     1.25rem
   ); /* 14px - 20px */
-  --emphasis-font-size: clamp(1rem, 2vw + 0.125rem, 1.5rem); /* 16px - 24px */
+  --emphasis-font-size: clamp(
+    0.875rem,
+    1.5vw + 0.125rem,
+    1.25rem
+  ); /* 14px - 20px */
   --label-font-size: clamp(
     0.75rem,
     1.25vw + 0.125rem,
@@ -88,7 +92,17 @@
   --primary-color: #925bff;
   --text-color: #c9c3d2;
   --text-color-secondary: #f9f8ef;
-  --background-color: #171310;
+  --dark-color: #171310;
+
+  /* -------------------- Backgrounds -------------------- */
+  --background-color: var(--dark-color);
+  --background-button: linear-gradient(
+    180deg,
+    rgba(231, 225, 240, 1) 0%,
+    rgba(231, 225, 240, 0.94) 0%,
+    rgba(231, 225, 240, 0.88) 0%,
+    rgba(231, 225, 240, 0.75) 100%
+  );
 
   /* -------------------- Effects -------------------- */
   --text-inner-shadow: inset 0px 2px 4px #fff;

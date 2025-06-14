@@ -32,3 +32,23 @@ p {
   max-width: 1200px;
   padding: var(--padding-6);
 }
+
+.loaderImageWrapper {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.loaderImage {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0;
+  pointer-events: none;
+}
