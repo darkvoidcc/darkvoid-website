@@ -1,18 +1,18 @@
 .btn {
   display: flex;
   align-items: center;
-  padding: var(--padding-2) var(--padding-4);
+  padding: clamp(0.5rem, 1vw + 0.25rem, 1rem) clamp(1rem, 2vw + 0.5rem, 2rem);
   border: none;
-  gap: var(--gap-1);
+  gap: clamp(0.25rem, 0.8vw, 1rem);
   border-radius: 9999px;
   background: var(--background-button);
   color: var(--dark-color);
-  font: 8px var(--outfit-regular), sans-serif;
+  font-size: clamp(0.75rem, 1vw + 0.25rem, 1.25rem);
+  font-family: var(--outfit-regular), sans-serif;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, opacity 0.2s, fill 0.2s ease-in-out;
-  transform: scale(1.2);
-  margin-top: var(--padding-4);
+  margin-top: clamp(0.75rem, 1.5vw, 2rem);
 }
 
 .btn:hover:not(:disabled) {

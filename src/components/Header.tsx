@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import { Link } from './Link';
+import { Link as RouterLink } from 'react-router-dom';
 import { Icon } from './Icon';
 import styles from './Header.module.css';
 
@@ -15,56 +15,50 @@ export function Header(): JSX.Element {
   return (
     <header className={styles.header}>
       {/* Logo */}
-      <Icon
-        name="fullLogo"
-        className={styles.logoIcon}
-      />
+      <RouterLink to="/">
+        <Icon
+          name="fullLogo"
+          className={styles.logoIcon}
+        />
+      </RouterLink>
       {/* Navigation Links */}
       <nav className={styles.nav}>
-        <Link
-          href="/products"
-          icon={
-            <Icon
-              name="products"
-              className={styles.icon}
-            />
-          }
-          text="Products"
-          className={`${styles.link} txt-body`}
-        />
-        <Link
-          href="/resources"
-          icon={
-            <Icon
-              name="misc"
-              className={styles.icon}
-            />
-          }
-          text="Resources"
-          className={`${styles.link} txt-body`}
-        />
-        <Link
-          href="/status"
-          icon={
-            <Icon
-              name="status"
-              className={styles.icon}
-            />
-          }
-          text="Status"
-          className={`${styles.link} txt-body`}
-        />
-        <Link
-          href="/contact"
-          icon={
-            <Icon
-              name="contact"
-              className={styles.icon}
-            />
-          }
-          text="Contact"
-          className={`${styles.link} txt-body`}
-        />
+        <RouterLink
+          to="/products"
+          className={`${styles.link} txt-body`}>
+          <Icon
+            name="products"
+            className={styles.icon}
+          />
+          Products
+        </RouterLink>
+        <RouterLink
+          to="/resources"
+          className={`${styles.link} txt-body`}>
+          <Icon
+            name="misc"
+            className={styles.icon}
+          />
+          Resources
+        </RouterLink>
+        <RouterLink
+          to="/status"
+          className={`${styles.link} txt-body`}>
+          <Icon
+            name="status"
+            className={styles.icon}
+          />
+          Status
+        </RouterLink>
+        <RouterLink
+          to="/contact"
+          className={`${styles.link} txt-body`}>
+          <Icon
+            name="contact"
+            className={styles.icon}
+          />
+          Contact
+        </RouterLink>
       </nav>
     </header>
   );

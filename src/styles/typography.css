@@ -1,8 +1,8 @@
 /* ---- Title ---- */
 .txt-title {
   font-family: var(--title);
-  font-size: clamp(2rem, 4vw + 1rem, 2.5rem);
-  letter-spacing: -4%;
+  font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem); /* ~40–72px */
+  letter-spacing: -0.03em;
   line-height: 1.1;
   text-shadow: var(--text-inner-shadow);
 }
@@ -10,15 +10,15 @@
 /* ---- Subtitle 1 ---- */
 .txt-subtitle1 {
   font-family: var(--subtitle1);
-  font-size: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
-  letter-spacing: -2%;
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem); /* ~28–40px */
+  letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
 /* ---- Subtitle 2 ---- */
 .txt-subtitle2 {
   font-family: var(--subtitle2);
-  font-size: clamp(1.25rem, 2.5vw + 0.25rem, 2rem);
+  font-size: clamp(1.5rem, 2.5vw + 0.25rem, 2rem); /* ~24–32px */
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
@@ -26,7 +26,7 @@
 /* ---- Subtitle 3 ---- */
 .txt-subtitle3 {
   font-family: var(--subtitle3);
-  font-size: clamp(1.125rem, 2vw + 0.125rem, 1.75rem);
+  font-size: clamp(1.25rem, 2vw + 0.25rem, 1.75rem); /* ~20–28px */
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
@@ -34,15 +34,15 @@
 /* ---- Emphasis ---- */
 .txt-emphasis {
   font-family: var(--emphasis);
-  font-size: clamp(0.5rem, 1.5vw + 0.125rem, 0.7rem);
-  letter-spacing: -0.01em;
-  line-height: 1.3;
+  font-size: clamp(0.875rem, 1.5vw + 0.25rem, 1.125rem); /* ~14–18px */
+  letter-spacing: -0.005em;
+  line-height: 1.4;
 }
 
 /* ---- Body ---- */
 .txt-body {
   font-family: var(--body);
-  font-size: clamp(0.5rem, 1.5vw + 0.125rem, 0.7rem);
+  font-size: clamp(0.875rem, 1.5vw + 0.25rem, 1.125rem); /* ~14–18px */
   letter-spacing: 0;
   line-height: 1.6;
 }
@@ -50,7 +50,7 @@
 /* ---- Label ---- */
 .txt-label {
   font-family: var(--label);
-  font-size: clamp(0.75rem, 1.25vw + 0.125rem, 1.125rem);
+  font-size: clamp(0.8125rem, 1.25vw + 0.25rem, 1rem); /* ~13–16px */
   letter-spacing: 0.02em;
   line-height: 1.4;
 }
@@ -58,7 +58,7 @@
 /* ---- Caps ---- */
 .txt-caps {
   font-family: var(--caps);
-  font-size: clamp(0.875rem, 1.5vw + 0.125rem, 1.25rem);
+  font-size: clamp(0.875rem, 1.5vw + 0.25rem, 1.125rem); /* ~14–18px */
   letter-spacing: 0.1em;
   line-height: 1.3;
   text-transform: uppercase;
@@ -67,7 +67,7 @@
 /* ---- Caption ---- */
 .txt-caption {
   font-family: var(--caption);
-  font-size: clamp(0.75rem, 1.25vw + 0.125rem, 1.125rem);
+  font-size: clamp(0.8125rem, 1.25vw + 0.25rem, 1rem); /* ~13–16px */
   letter-spacing: 0.01em;
   line-height: 1.4;
 }

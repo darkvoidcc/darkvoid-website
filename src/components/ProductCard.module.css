@@ -1,0 +1,86 @@
+.card {
+  background: var(--dark-color);
+  border-radius: 1.5rem;
+  padding: 0;
+  position: relative;
+  max-width: 239px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-1) var(--padding-1) var(--padding-4) var(--padding-1);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 0px var(--padding-1);
+}
+
+.cardTitle {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  font-family: var(--emphasis), sans-serif;
+}
+
+.cardRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.1rem;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  background: #34c75933;
+  color: #34c759;
+  font-size: 8px;
+  font-weight: medium;
+  border-radius: 4px;
+  padding: var(--padding-1) var(--padding-2);
+  gap: var(--gap-1);
+  pointer-events: none;
+}
+
+.price {
+  color: #b590ff;
+  margin: 0.1rem 0 0.1rem 0;
+  font: var(--emphasis), sans-serif;
+  font-size: 14px;
+  opacity: 80%;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dash {
+  width: 100%;
+  border: none;
+  border-top: 1px dashed rgba(201, 195, 210, 0.3);
+}
+
+.purchaseButton {
+  border-radius: 8px 4px 8px 4px !important;
+  font-size: 8px !important;
+  padding: 4px 8px !important;
+  box-shadow: var(--text-inner-shadow);
+  margin-top: 0 !important;
+  transform: none;
+  gap: 2px !important;
+}
