@@ -1,27 +1,17 @@
-import { JSX } from 'react';
+import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Icon } from './Icon';
 import styles from './Header.module.css';
 
-/**
- * Header Component
- * @description Main navigation header component with links to different sections
- * @version 1.0.0
- * @author Neodevils
- * @example
- * <Header />
- */
-export function Header(): JSX.Element {
+export function Header() {
   return (
     <header className={styles.header}>
-      {/* Logo */}
       <RouterLink to="/">
         <Icon
           name="fullLogo"
           className={styles.logoIcon}
         />
       </RouterLink>
-      {/* Navigation Links */}
       <nav className={styles.nav}>
         <RouterLink
           to="/products"

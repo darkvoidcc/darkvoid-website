@@ -1,9 +1,9 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
 import Products from './pages/Products';
+import Status from './pages/Status';
 
 function App() {
   return (
@@ -21,6 +21,10 @@ function App() {
           <Route
             path="/products"
             element={<Products />}
+          />
+          <Route
+            path="/status"
+            element={<Status />}
           />
         </Routes>
       </div>

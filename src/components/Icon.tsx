@@ -22,6 +22,9 @@ import { ReactComponent as Status } from '../assets/icons/Status Icon.svg';
 import { ReactComponent as UpToDate } from '../assets/icons/Up-to-date Icon.svg';
 import { ReactComponent as Visuals } from '../assets/icons/Visuals Icon.svg';
 import { ReactComponent as Website } from '../assets/icons/Website Icon.svg';
+import { ReactComponent as Activity } from '../assets/icons/Activity Icon.svg';
+import { ReactComponent as EyeOff } from '../assets/icons/Eye Off Icon.svg';
+import { ReactComponent as Flag } from '../assets/icons/Flag Icon.svg';
 
 // Icon types
 export type IconName =
@@ -47,7 +50,10 @@ export type IconName =
   | 'status'
   | 'upToDate'
   | 'visuals'
-  | 'website';
+  | 'website'
+  | 'activity'
+  | 'eyeOff'
+  | 'flag';
 
 const iconMap: Record<
   IconName,
@@ -76,6 +82,9 @@ const iconMap: Record<
   upToDate: UpToDate,
   visuals: Visuals,
   website: Website,
+  activity: Activity,
+  flag: Flag,
+  eyeOff: EyeOff,
 };
 
 interface IconProps {
