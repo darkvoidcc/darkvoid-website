@@ -6,20 +6,39 @@ import { Button } from './Button';
 interface ProductCardProps {
   image: string;
   title: string;
-  status: string;
-  statusType?: 'up-to-date' | 'outdated' | 'maintance';
+  status: 'up-to-date' | 'maintance' | 'expired';
   price: string;
   onPurchase?: () => void;
+  statusLabel?: string;
 }
+
+const statusConfig = {
+  'up-to-date': {
+    icon: 'upToDate',
+    className: styles.statusUpToDate,
+    label: 'Up-to-date',
+  },
+  maintance: {
+    icon: 'maintance',
+    className: styles.statusMaintance,
+    label: 'Maintance',
+  },
+  expired: {
+    icon: 'error',
+    className: styles.statusExpired,
+    label: 'Expired',
+  },
+} as const;
 
 export function ProductCard({
   image,
   title,
   status,
-  statusType = 'up-to-date',
   price,
   onPurchase,
+  statusLabel,
 }: ProductCardProps) {
+  const config = statusConfig[status];
   return (
     <div className={styles.card}>
       <img
@@ -30,18 +49,12 @@ export function ProductCard({
       <div className={styles.cardContent}>
         <div className={styles.cardRow}>
           <h2 className={styles.cardTitle}>{title}</h2>
-          <span className={styles.status}>
+          <span className={`${styles.status} ${config.className}`}>
             <Icon
-              name={
-                statusType === 'up-to-date'
-                  ? 'upToDate'
-                  : statusType === 'maintance'
-                  ? 'maintance'
-                  : 'error'
-              }
+              name={config.icon}
               className={styles.icon}
             />
-            {status}
+            {statusLabel || config.label}
           </span>
         </div>
         <hr className={styles.dash} />

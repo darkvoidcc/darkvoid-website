@@ -34,6 +34,7 @@ export type IconName =
   | 'crown'
   | 'customization'
   | 'error'
+  | 'expired'
   | 'exploit'
   | 'key'
   | 'fullLogo'
@@ -61,6 +62,7 @@ const iconMap: Record<
   crown: Crown,
   customization: Customization,
   error: ErrorIcon,
+  expired: ErrorIcon,
   exploit: Exploit,
   key: Key,
   fullLogo: FullLogo,

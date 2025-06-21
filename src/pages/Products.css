@@ -1,0 +1,143 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+#products {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: auto;
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+
+  border-radius: 20px;
+  background: none;
+  z-index: 1;
+}
+
+.products-section {
+  background-color: rgba(23, 19, 16, 0.6);
+  border: 1px solid rgba(249, 248, 239, 0.2);
+  border-radius: 20px;
+  padding: 16px;
+  backdrop-filter: blur(200px);
+  -webkit-backdrop-filter: blur(200px);
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 781px;
+  max-height: 624px;
+  align-self: flex-start;
+  row-gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  #products {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    align-content: start;
+  }
+
+  .products-section {
+    max-width: none;
+  }
+}
+
+.products-head {
+  display: flex;
+  flex-direction: column;
+  column-gap: 8px;
+}
+
+.products-head h1 {
+  color: var(--text-color-secondary);
+  font-size: 72px;
+}
+
+.products-head p {
+  font-size: 14px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 1.2rem;
+  overflow-y: auto;
+  max-height: 100%;
+  justify-items: center;
+  align-items: stretch;
+}
+
+/* Ürün kartlarının grid hücresini tamamen doldurması için */
+.products-grid > * {
+  width: 100%;
+  height: 100%;
+  max-width: 239px;
+  max-height: 194px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  align-self: stretch;
+  flex: 1;
+}
+
+.info-card {
+  background-color: rgba(23, 19, 16, 0.849);
+  border: 1px solid rgba(249, 248, 239, 0.2);
+
+  backdrop-filter: blur(200px);
+  -webkit-backdrop-filter: blur(200px);
+
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-width: 411px;
+  min-height: 304px;
+}
+
+.info-title {
+  margin: 1rem 0 0.5rem;
+  font-family: var(--emphasis, sans-serif);
+  font-size: 1rem;
+}
+
+.info-text {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+@media (max-width: 1023px) {
+  .info-panels {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .info-card {
+    flex: 1 1 280px;
+  }
+}

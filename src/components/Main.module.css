@@ -6,21 +6,21 @@ main {
   justify-content: center;
 }
 
-h1,
-p {
+.mainText {
   mix-blend-mode: difference;
   text-shadow: var(--text-inner-shadow);
   color: var(--text-color-secondary);
   text-align: center;
 }
 
-p {
+.mainTextP {
   mix-blend-mode: luminosity;
   text-shadow: none;
   color: var(--text-primary-color);
+  text-align: center;
 }
 
-.main-content {
+.mainContent {
   display: flex;
   flex-direction: column;
   align-items: center;

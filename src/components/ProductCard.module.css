@@ -1,9 +1,10 @@
 .card {
   background: var(--dark-color);
-  border-radius: 1.5rem;
+  border-radius: 20px;
   padding: 0;
   position: relative;
   max-width: 239px;
+  max-height: 194px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +18,7 @@
   object-fit: cover;
   display: block;
   pointer-events: none;
+  border-radius: 18px;
 }
 
 .cardContent {
@@ -45,14 +47,32 @@
 .status {
   display: flex;
   align-items: center;
-  background: #34c75933;
-  color: #34c759;
   font-size: 8px;
   font-weight: medium;
   border-radius: 4px;
-  padding: var(--padding-1) var(--padding-2);
+  padding: 2px 4px;
   gap: var(--gap-1);
   pointer-events: none;
+}
+
+.statusUpToDate {
+  background: #34c75933;
+  color: #34c759;
+}
+
+.statusMaintance {
+  background: #ffcc0033;
+  color: #ffcc00;
+}
+
+.statusError {
+  background: #ff3b3033;
+  color: #ff3b30;
+}
+
+.statusExpired {
+  background: #ff3b3033;
+  color: #ff3b30;
 }
 
 .price {

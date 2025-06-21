@@ -19,9 +19,11 @@ export function Main(): JSX.Element {
         name="logo"
         className={styles.logoIcon}
       />
-      <div className="main-content">
-        <h1 className="txt-title">The safest gaming experience_</h1>
-        <p className="txt-body">
+      <div className={styles.mainContent}>
+        <h1 className={`${styles.mainText} txt-title`}>
+          The safest gaming experience_
+        </h1>
+        <p className={`${styles.mainTextP} txt-body`}>
           Darkvoid — private software for those committed to forever-lasting
           accounts.
         </p>
