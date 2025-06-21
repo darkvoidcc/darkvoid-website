@@ -1,15 +1,13 @@
 .card {
   background: var(--dark-color);
   border-radius: 20px;
-  padding: 0;
+  padding: 4px;
+  padding-bottom: 16px;
   position: relative;
-  max-width: 239px;
-  max-height: 194px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: var(--padding-1) var(--padding-1) var(--padding-4) var(--padding-1);
 }
 
 .cardImage {
@@ -18,19 +16,18 @@
   object-fit: cover;
   display: block;
   pointer-events: none;
-  border-radius: 18px;
 }
 
 .cardContent {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: clamp(4px, 1vw, 8px);
   width: 100%;
-  padding: 0px var(--padding-1);
+  padding: 0 var(--padding-1);
 }
 
 .cardTitle {
-  font-size: 1.08rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   font-weight: 500;
   color: #fff;
   margin: 0;
@@ -41,17 +38,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0.1rem;
+  margin-top: clamp(0.1rem, 1vw, 0.5rem);
 }
 
 .status {
   display: flex;
   align-items: center;
-  font-size: 8px;
+  font-size: clamp(0.625rem, 1.5vw, 0.75rem);
   font-weight: medium;
   border-radius: 4px;
   padding: 2px 4px;
-  gap: var(--gap-1);
+  gap: clamp(2px, 0.5vw, 4px);
   pointer-events: none;
 }
 
@@ -65,11 +62,7 @@
   color: #ffcc00;
 }
 
-.statusError {
-  background: #ff3b3033;
-  color: #ff3b30;
-}
-
+.statusError,
 .statusExpired {
   background: #ff3b3033;
   color: #ff3b30;
@@ -77,16 +70,17 @@
 
 .price {
   color: #b590ff;
-  margin: 0.1rem 0 0.1rem 0;
-  font: var(--emphasis), sans-serif;
-  font-size: 14px;
-  opacity: 80%;
+  margin: clamp(0.1rem, 1vw, 0.5rem) 0;
+  font-family: var(--emphasis), sans-serif;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  opacity: 0.8;
 }
 
 .cardFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .dash {
@@ -97,10 +91,16 @@
 
 .purchaseButton {
   border-radius: 8px 4px 8px 4px !important;
-  font-size: 8px !important;
-  padding: 4px 8px !important;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem) !important;
+  padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 12px) !important;
   box-shadow: var(--text-inner-shadow);
   margin-top: 0 !important;
   transform: none;
-  gap: 2px !important;
+  gap: clamp(2px, 0.5vw, 4px) !important;
+}
+
+@media (max-width: 600px) {
+  .card {
+    border-radius: 38px;
+  }
 }
