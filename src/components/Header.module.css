@@ -6,8 +6,8 @@
 }
 
 .logoIcon {
-  width: var(--logo-size);
-  min-width: 2.5rem;
+  width: clamp(2.5rem, 5vw + 1rem, 6rem);
+  height: auto;
 }
 
 .nav {
@@ -31,11 +31,6 @@
 
 .link:hover .icon {
   fill: var(--primary-color);
-}
-
-.icon {
-  width: var(--icon-size);
-  height: var(--icon-size);
 }
 
 /* @media (max-width: 600px) {
