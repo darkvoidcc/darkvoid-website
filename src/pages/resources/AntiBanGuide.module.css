@@ -14,9 +14,8 @@ body {
 }
 
 .container {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 16px;
+  padding: 16px 50px;
 }
 
 .columns {
@@ -102,7 +101,8 @@ body {
 .promos {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: start;
+  justify-content: space-between;
 }
 
 /* Tablet and below: stack columns, adjust sizes */
@@ -112,7 +112,7 @@ body {
   }
 
   .container {
-    padding: 16px 8px;
+    padding: 25px;
   }
 
   .title {
