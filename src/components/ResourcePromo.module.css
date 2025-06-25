@@ -1,0 +1,94 @@
+/* ResourcePromo.module.css */
+
+.promo {
+  background-color: var(--dark-color);
+  border-radius: 30px;
+  box-shadow: inset 0 -20px 20px -8px #ffffff,
+    inset 0 -40px 30px -8px rgba(86, 163, 251, 0.5),
+    inset 0 -80px 60px -30px #2256e5;
+
+  /* fluid width but capped on desktop */
+  width: 100%;
+  max-width: 383px;
+  height: 306px;
+
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.iconWrapper {
+  height: 59px;
+  display: flex;
+  align-items: center;
+  color: var(--dark-color);
+}
+
+.iconWrapper svg {
+  height: 100%;
+  width: auto;
+  fill: currentColor;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--subtitle1), sans-serif;
+  font-size: var(--outfit-header-1); /* 36px */
+  line-height: 1; /* 100% */
+  letter-spacing: -0.04em; /* -4% */
+  color: var(--text-color-secondary);
+}
+
+.description {
+  margin: 0;
+  font-family: var(--body), sans-serif;
+  font-size: var(--outfit-body); /* 14px */
+  line-height: normal;
+  letter-spacing: 0;
+  color: var(--text-color);
+}
+
+.button {
+  width: 207px;
+  height: 43px;
+  box-sizing: border-box;
+  padding: 16px 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  border-radius: 50px;
+  background: var(
+    --promo-button-bg,
+    linear-gradient(to right, #e0f3ff, #a0d4ff)
+  );
+  text-decoration: none;
+
+  font-family: var(--body), sans-serif;
+  font-size: 0.875rem; /* ~14px */
+  color: var(--dark-color);
+}
+
+.buttonIcon {
+  display: flex;
+  height: 100%;
+  color: var(--dark-color);
+}
+
+.buttonIcon svg {
+  height: 100%;
+  width: auto;
+  fill: currentColor;
+}
+
+/* Tablet & below: remove max-width so promo fills its parent container */
+@media (max-width: 1024px) {
+  .promo {
+    max-width: none;
+    width: 100%;
+  }
+}

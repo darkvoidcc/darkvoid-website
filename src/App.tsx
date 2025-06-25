@@ -1,9 +1,12 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
 import Products from './pages/Products';
+import Resources from './pages/Resources';
 import Status from './pages/Status';
+import AntiBanGuide from './pages/resources/AntiBanGuide';
 
 function App() {
   return (
@@ -21,6 +24,14 @@ function App() {
           <Route
             path="/products"
             element={<Products />}
+          />
+          <Route
+            path="/resources"
+            element={<Resources />}
+          />
+          <Route
+            path="/resources/antibanguide"
+            element={<AntiBanGuide />}
           />
           <Route
             path="/status"

@@ -1,0 +1,146 @@
+/* src/pages/AntiBanGuide.module.css */
+
+:global(.background-gradient) {
+  display: none !important;
+}
+
+:global(html),
+:global(body) {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #181624;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.content {
+  background: rgba(23, 19, 16, 0.8);
+  border: 1px solid rgba(249, 248, 239, 0.2);
+  border-radius: 20px;
+  padding: 16px;
+  font-size: 0.85rem;
+}
+
+.title {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 0 0 16px;
+  font-family: var(--title), sans-serif;
+  font-size: 1.75rem;
+  color: var(--text-color-secondary);
+}
+
+.section {
+  font-family: var(--title), sans-serif;
+  font-size: 36px;
+  color: var(--text-color-secondary);
+}
+
+.separator {
+  font-family: 'Kode mono', monospace;
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+.subtitle {
+  font-family: 'Kode mono', monospace;
+  font-size: 16px;
+  color: var(--text-color-secondary);
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--subtitle1), sans-serif;
+  font-size: 1.25rem;
+  color: var(--text-color);
+}
+
+.paragraph {
+  margin: 8px 0 0;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid rgba(249, 248, 239, 0.2);
+  margin: 16px 0;
+}
+
+.list {
+  margin: 8px 0 0 1rem;
+  padding: 0;
+  list-style: disc;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.list li + li {
+  margin-top: 4px;
+}
+
+.note {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.promos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Tablet and below: stack columns, adjust sizes */
+@media (max-width: 1024px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 16px 8px;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+
+  .heading {
+    font-size: 1.2rem;
+  }
+
+  .paragraph,
+  .list,
+  .note {
+    font-size: 0.8rem;
+  }
+
+  /* make promos fill the container */
+  .promos :global(.promo) {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+/* Phone: tighter spacing */
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+  }
+}
