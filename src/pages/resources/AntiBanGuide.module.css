@@ -1,5 +1,3 @@
-/* src/pages/AntiBanGuide.module.css */
-
 :global(.background-gradient) {
   display: none !important;
 }
@@ -43,21 +41,22 @@ body {
 }
 
 .section {
-  font-family: var(--title), sans-serif;
   font-size: 36px;
-  color: var(--text-color-secondary);
+  font-weight: bold;
+  color: #fff;
+  font-family: 'Outfit Semibold', sans-serif;
 }
 
 .separator {
-  font-family: 'Kode mono', monospace;
+  font-family: 'Outfit Semibold', sans-serif;
   font-size: 24px;
-  color: var(--text-color);
+  color: #fff;
 }
 
 .subtitle {
   font-family: 'Kode mono', monospace;
   font-size: 16px;
-  color: var(--text-color-secondary);
+  color: var(--text-color);
 }
 
 .heading {

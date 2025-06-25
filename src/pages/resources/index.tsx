@@ -1,5 +1,4 @@
-import React from 'react';
-import styles from './Resources.module.css';
+import styles from './Index.module.css';
 
 export default function Resources() {
   return (

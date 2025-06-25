@@ -4,9 +4,11 @@ import './App.css';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
 import Products from './pages/Products';
-import Resources from './pages/Resources';
+import Resources from './pages/resources';
 import Status from './pages/Status';
 import AntiBanGuide from './pages/resources/AntiBanGuide';
+import Terms from './pages/resources/Terms';
+import Privacy from './pages/resources/Privacy';
 
 function App() {
   return (
@@ -32,6 +34,14 @@ function App() {
           <Route
             path="/resources/antibanguide"
             element={<AntiBanGuide />}
+          />
+          <Route
+            path="/terms"
+            element={<Terms />}
+          />
+          <Route
+            path="/privacy"
+            element={<Privacy />}
           />
           <Route
             path="/status"
