@@ -1,15 +1,68 @@
+// src/pages/Products.tsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ProductCard } from '../components/ProductCard';
-import ValorantImage from '../assets/images/valorant.webp';
+
 import SecretLabImage from '../assets/images/seretlab.webp';
-import RobloxImage from '../assets/images/roblox.webp';
-import TheFinalsImage from '../assets/images/thefinals.webp';
+import ValorantImage from '../assets/images/valorant.webp';
 import CSGOImage from '../assets/images/counterstrike.webp';
 import GenshinImpactImage from '../assets/images/genshinimpact.webp';
+import RobloxImage from '../assets/images/roblox.webp';
+import TheFinalsImage from '../assets/images/thefinals.webp';
+
 import SafetyImage from '../assets/images/safetyfirst.webp';
 import AlwaysUpDateImage from '../assets/images/alwaysuptodate.webp';
+
 import './Products.css';
 
+const productList = [
+  {
+    slug: 'secret-lab',
+    image: SecretLabImage,
+    price: '€4.00',
+    status: 'expired',
+    title: 'Secret Lab: SL',
+  },
+  {
+    slug: 'valorant',
+    image: ValorantImage,
+    price: '€8.00',
+    status: 'up-to-date',
+    title: 'Valorant',
+  },
+  {
+    slug: 'counter-strike-2',
+    image: CSGOImage,
+    price: '€4.00',
+    status: 'expired',
+    title: 'Counter Strike 2',
+  },
+  {
+    slug: 'genshin-impact',
+    image: GenshinImpactImage,
+    price: '€4.00',
+    status: 'expired',
+    title: 'Genshin Impact',
+  },
+  {
+    slug: 'roblox',
+    image: RobloxImage,
+    price: '€8.00',
+    status: 'expired',
+    title: 'Roblox',
+  },
+  {
+    slug: 'the-finals',
+    image: TheFinalsImage,
+    price: '€8.00',
+    status: 'expired',
+    title: 'The Finals',
+  },
+];
+
 export default function Products() {
+  const navigate = useNavigate();
+
   return (
     <>
       <main id="products">
@@ -23,43 +76,16 @@ export default function Products() {
           </header>
 
           <div className="products-grid">
-            <ProductCard
-              image={SecretLabImage}
-              price="€4.00"
-              status="expired"
-              title="Secret Lab: SL"
-            />
-            <ProductCard
-              image={ValorantImage}
-              price="€8.00"
-              status="up-to-date"
-              title="Valorant"
-            />
-            <ProductCard
-              image={CSGOImage}
-              price="€4.00"
-              status="expired"
-              title="Counter Strike 2"
-            />
-
-            <ProductCard
-              image={GenshinImpactImage}
-              price="€4.00"
-              status="expired"
-              title="Genshin Impact"
-            />
-            <ProductCard
-              image={RobloxImage}
-              price="€8.00"
-              status="expired"
-              title="Roblox"
-            />
-            <ProductCard
-              image={TheFinalsImage}
-              price="€8.00"
-              status="expired"
-              title="The Finals"
-            />
+            {productList.map((product) => (
+              <ProductCard
+                key={product.slug}
+                image={product.image}
+                price={product.price}
+                status={product.status as any}
+                title={product.title}
+                onPurchase={() => navigate(`/products/${product.slug}`)}
+              />
+            ))}
           </div>
         </section>
 
@@ -67,7 +93,7 @@ export default function Products() {
           <div className="info-card">
             <img
               src={SafetyImage}
-              alt=""
+              alt="Safety First"
             />
             <h3 className="info-title">Safety First.</h3>
             <p className="info-text">
@@ -80,7 +106,7 @@ export default function Products() {
           <div className="info-card">
             <img
               src={AlwaysUpDateImage}
-              alt=""
+              alt="Always up-to-date"
             />
             <h3 className="info-title">Always up-to-date.</h3>
             <p className="info-text">
@@ -90,6 +116,7 @@ export default function Products() {
           </div>
         </aside>
       </main>
+
       <footer className="page-footer">
         DarkVoid, born in 2025, equips you and others with cutting-edge legit
         and HUH cheating software designed to elevate gameplay for all needs.
