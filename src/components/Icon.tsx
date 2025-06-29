@@ -27,6 +27,8 @@ import { ReactComponent as EyeOff } from '../assets/icons/Eye Off Icon.svg';
 import { ReactComponent as Flag } from '../assets/icons/Flag Icon.svg';
 import { ReactComponent as Telegram } from '../assets/icons/Telegram Icon.svg';
 import { ReactComponent as Discord } from '../assets/icons/Discord Icon.svg';
+import { ReactComponent as Globe } from '../assets/icons/Globe Purchase Icon.svg';
+import { ReactComponent as FlagPurchase } from '../assets/icons/Flag Purchase Icon.svg';
 
 // Icon types
 export type IconName =
@@ -57,6 +59,8 @@ export type IconName =
   | 'eyeOff'
   | 'flag'
   | 'telegram'
+  | 'flagPurchase'
+  | 'globe'
   | 'discord';
 
 const iconMap: Record<
@@ -91,6 +95,8 @@ const iconMap: Record<
   eyeOff: EyeOff,
   telegram: Telegram,
   discord: Discord,
+  globe: Globe,
+  flagPurchase: FlagPurchase,
 };
 
 interface IconProps {

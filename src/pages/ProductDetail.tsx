@@ -1,10 +1,7 @@
-// src/pages/ProductDetail.tsx
-
 import { useState } from 'react';
 import styles from './ProductDetail.module.css';
 import { Icon } from '../components/Icon';
 import { Button } from '../components/Button';
-import banner from '../assets/images/valorant.webp';
 import preview1 from '../assets/images/valorant_preview1.png';
 import preview2 from '../assets/images/valorant_preview2.png';
 
