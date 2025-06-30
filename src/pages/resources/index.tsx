@@ -1,8 +1,45 @@
+import React, { useRef, useEffect } from 'react';
 import styles from './Index.module.css';
+import gsap from 'gsap';
 
 export default function Resources() {
+  const mainRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context((self) => {
+      const q = self.selector!;
+      const tl = gsap.timeline({
+        defaults: { duration: 0.6, ease: 'power1.out' },
+      });
+
+      tl.fromTo(
+        q(`.${styles.title}`),
+        { autoAlpha: 0, y: -20 },
+        { autoAlpha: 1, y: 0 },
+      );
+
+      tl.fromTo(
+        q(`.${styles.cards} .card`),
+        { autoAlpha: 0, scale: 0.8 },
+        { autoAlpha: 1, scale: 1, stagger: 0.2 },
+        '-=0.3',
+      );
+
+      tl.fromTo(
+        q(`.${styles.links} a`),
+        { autoAlpha: 0, y: 10 },
+        { autoAlpha: 1, y: 0, stagger: 0.15 },
+        '-=0.4',
+      );
+    }, mainRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <main className={styles.resources}>
+    <main
+      ref={mainRef}
+      className={styles.resources}>
       <h1 className={styles.title}>Resources</h1>
 
       <div className={styles.cards}>
@@ -35,12 +72,12 @@ export default function Resources() {
 
           <div className={styles.links}>
             <a
-              href="/terms"
+              href="/resources/terms"
               className={styles.footerLink}>
               Term of Conditions
             </a>
             <a
-              href="/privacy"
+              href="/resources/privacy"
               className={styles.footerLink}>
               Privacy Policy &amp; Cookies
             </a>

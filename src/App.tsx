@@ -1,4 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// src/App.tsx
+import React, { useState, useCallback, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 import './App.css';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
@@ -10,86 +17,98 @@ import Terms from './pages/resources/Terms';
 import Privacy from './pages/resources/Privacy';
 import Status from './pages/Status';
 import FAQ from './pages/resources/FAQ';
-import { useState, useCallback } from 'react';
 import gradient from './assets/images/Gradient.webp';
 import { products } from './data/productsData';
 
-function App() {
-  const [backgroundImage, setBackgroundImage] = useState<string>(gradient);
+function AppContent() {
+  const location = useLocation();
+  const [bgImage, setBgImage] = useState<string>(gradient);
 
-  // Ürün detayına girildiğinde arka planı değiştir
   const handleSetProductBackground = useCallback((slug?: string) => {
-    if (!slug) {
-      setBackgroundImage(gradient);
-      return;
-    }
-    const product = products.find((p) => p.slug === slug);
-    if (product && product.thumbnail) {
-      setBackgroundImage(product.thumbnail);
-    } else {
-      setBackgroundImage(gradient);
-    }
+    const url = slug
+      ? products.find((p) => p.slug === slug)?.thumbnail || gradient
+      : gradient;
+    setBgImage(url);
   }, []);
 
+  useEffect(() => {
+    if (location.pathname.startsWith('/products/')) return;
+    if (location.pathname.startsWith('/resources')) {
+      setBgImage('');
+    } else {
+      setBgImage(gradient);
+    }
+  }, [location.pathname]);
+
+  const isResource = location.pathname.startsWith('/resources');
+
   return (
-    <Router>
+    <div
+      className="App"
+      style={{ position: 'relative', minHeight: '100vh' }}>
       <div
-        className="App"
+        className="bg-layer"
         style={{
-          position: 'relative',
-          minHeight: '100vh',
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${backgroundImage})`,
+          background: isResource ? '#000' : undefined,
+          backgroundImage: isResource
+            ? undefined
+            : `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-        }}>
-        <div className="background-gradient" />
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={<Main />}
-          />
-          <Route
-            path="/products"
-            element={<Products />}
-          />
-          <Route
-            path="/products/:slug"
-            element={
-              <ProductDetail
-                setProductBackground={handleSetProductBackground}
-              />
-            }
-          />
-
-          <Route
-            path="/status"
-            element={<Status />}
-          />
-          <Route
-            path="/resources"
-            element={<Resources />}
-          />
-          <Route
-            path="/resources/antibanguide"
-            element={<AntiBanGuide />}
-          />
-          <Route
-            path="/resources/faq"
-            element={<FAQ />}
-          />
-          <Route
-            path="/resources/terms"
-            element={<Terms />}
-          />
-          <Route
-            path="/resources/privacy"
-            element={<Privacy />}
-          />
-        </Routes>
-      </div>
-    </Router>
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+          opacity: 1,
+        }}
+      />
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={<Main />}
+        />
+        <Route
+          path="/products"
+          element={<Products />}
+        />
+        <Route
+          path="/products/:slug"
+          element={
+            <ProductDetail setProductBackground={handleSetProductBackground} />
+          }
+        />
+        <Route
+          path="/status"
+          element={<Status />}
+        />
+        <Route
+          path="/resources"
+          element={<Resources />}
+        />
+        <Route
+          path="/resources/antibanguide"
+          element={<AntiBanGuide />}
+        />
+        <Route
+          path="/resources/faq"
+          element={<FAQ />}
+        />
+        <Route
+          path="/resources/terms"
+          element={<Terms />}
+        />
+        <Route
+          path="/resources/privacy"
+          element={<Privacy />}
+        />
+      </Routes>
+    </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './ProductCard.module.css';
 import { Icon } from './Icon';
 import { Button } from './Button';
+import gsap from 'gsap';
 
 interface ProductCardProps {
   image: string;
@@ -39,8 +40,42 @@ export function ProductCard({
   statusLabel,
 }: ProductCardProps) {
   const config = statusConfig[status];
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { duration: 0.5, ease: 'power1.out' },
+      });
+
+      tl.from(cardRef.current, { opacity: 0, y: 40 });
+
+      tl.from(
+        cardRef.current!.querySelector(`.${styles.cardImage}`),
+        { opacity: 0, scale: 0.8, duration: 0.6 },
+        '-=0.3',
+      );
+
+      tl.from(
+        cardRef.current!.querySelector(`.${styles.cardRow}`),
+        { opacity: 0, y: 20 },
+        '-=0.3',
+      );
+
+      tl.from(
+        cardRef.current!.querySelector(`.${styles.cardFooter}`),
+        { opacity: 0, y: 20 },
+        '-=0.3',
+      );
+    }, cardRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className={styles.card}>
+    <div
+      ref={cardRef}
+      className={styles.card}>
       <img
         src={image}
         alt={title}

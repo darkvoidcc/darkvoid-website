@@ -1,11 +1,32 @@
-.background-gradient {
-  position: absolute;
-  top: -100px;
+body,
+html {
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: black !important;
+}
+
+.bg-layer {
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background: url('./assets/images/Gradient.webp') no-repeat center top;
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   pointer-events: none;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 }

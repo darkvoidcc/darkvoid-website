@@ -1,4 +1,5 @@
-import React from 'react';
+// src/pages/Status.tsx
+import React, { useRef, useEffect } from 'react';
 import { Icon, IconName } from '../components/Icon';
 import LoaderVL from '../assets/images/loader-VL.webp';
 import LoaderSL from '../assets/images/loader-SL.webp';
@@ -6,6 +7,7 @@ import LoaderRB from '../assets/images/loader-RB.webp';
 import LoaderTF from '../assets/images/loader-TF.webp';
 import LoaderCS from '../assets/images/loader-CS.webp';
 import LoaderGI from '../assets/images/loader-GI.webp';
+import gsap from 'gsap';
 import './Status.css';
 
 type StatusType = 'up-to-date' | 'in-maintenance' | 'soon';
@@ -85,8 +87,46 @@ const loaders: Loader[] = [
 ];
 
 export default function Status() {
+  const mainRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context((self) => {
+      const q = self.selector!;
+      const tl = gsap.timeline({
+        defaults: { duration: 0.5, ease: 'power1.out' },
+      });
+
+      tl.fromTo(mainRef.current, { autoAlpha: 0 }, { autoAlpha: 1 });
+
+      tl.fromTo(
+        q('h1'),
+        { y: -20, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1 },
+        '-=0.3',
+      );
+
+      tl.fromTo(
+        q('.status-table tbody tr'),
+        { x: 50, autoAlpha: 0 },
+        { x: 0, autoAlpha: 1, stagger: 0.1 },
+        '-=0.4',
+      );
+
+      tl.fromTo(
+        q('.status-pill'),
+        { scale: 0.8, autoAlpha: 0 },
+        { scale: 1, autoAlpha: 1, stagger: 0.1 },
+        '-=0.5',
+      );
+    }, mainRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <main id="status">
+    <main
+      ref={mainRef}
+      id="status">
       <div className="status-container">
         <h1>Status</h1>
         <div className="status-table-wrapper">
@@ -94,19 +134,31 @@ export default function Status() {
             <thead>
               <tr>
                 <th>
-                  <Icon name="products" className="header-icon" />
+                  <Icon
+                    name="products"
+                    className="header-icon"
+                  />{' '}
                   Loader
                 </th>
                 <th>
-                  <Icon name="activity" className="header-icon" />
+                  <Icon
+                    name="activity"
+                    className="header-icon"
+                  />{' '}
                   Status
                 </th>
                 <th>
-                  <Icon name="eyeOff" className="header-icon" />
+                  <Icon
+                    name="eyeOff"
+                    className="header-icon"
+                  />{' '}
                   Last Detection
                 </th>
                 <th>
-                  <Icon name="flag" className="header-icon" />
+                  <Icon
+                    name="flag"
+                    className="header-icon"
+                  />{' '}
                   Release Date
                 </th>
               </tr>
@@ -126,8 +178,7 @@ export default function Status() {
                     </td>
                     <td>
                       <span className={`status-pill ${cfg.className}`}>
-                        <Icon name={cfg.icon} />
-                        {cfg.label}
+                        <Icon name={cfg.icon} /> {cfg.label}
                       </span>
                     </td>
                     <td>{l.lastDetection}</td>

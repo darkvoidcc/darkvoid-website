@@ -48,10 +48,54 @@ export function Button({
     if (onClick) onClick();
   };
 
+  const handleMouseEnter = () => {
+    if (btnRef.current && !disabled) {
+      gsap.to(btnRef.current, {
+        scale: 1.05,
+        duration: 0.2,
+        ease: 'power1.out',
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (btnRef.current && !disabled) {
+      gsap.to(btnRef.current, {
+        scale: 1,
+        duration: 0.2,
+        ease: 'power1.out',
+      });
+    }
+  };
+
+  const handleMouseDown = () => {
+    if (btnRef.current && !disabled) {
+      gsap.to(btnRef.current, {
+        scale: 0.95,
+        duration: 0.1,
+        ease: 'power1.inOut',
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (btnRef.current && !disabled) {
+      gsap.to(btnRef.current, {
+        scale: 1.05,
+        duration: 0.1,
+        ease: 'power1.out',
+      });
+    }
+  };
+
   return (
     <button
       ref={btnRef}
       onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
       className={`${styles.btn} ${className}`}
       disabled={disabled}
       style={{ cursor: disabled ? 'not-allowed' : 'pointer' }}>

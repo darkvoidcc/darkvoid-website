@@ -1,18 +1,60 @@
-// src/pages/Products.tsx
-import React from 'react';
+import { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ProductCard } from '../components/ProductCard';
 import { products } from '../data/productsData';
 import SafetyImage from '../assets/images/safetyfirst.webp';
 import AlwaysUpDateImage from '../assets/images/alwaysuptodate.webp';
 import './Products.css';
+import gsap from 'gsap';
 
 export default function Products() {
   const navigate = useNavigate();
+  const pageRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context((self) => {
+      const q = self.selector
+        ? self.selector
+        : (selector: string) =>
+            pageRef.current ? pageRef.current.querySelectorAll(selector) : [];
+      const tl = gsap.timeline({
+        defaults: { duration: 0.6, ease: 'power1.out' },
+      });
+
+      tl.fromTo(
+        q('.products-head h1'),
+        { autoAlpha: 0, y: -20 },
+        { autoAlpha: 1, y: 0 },
+      ).fromTo(
+        q('.products-head p'),
+        { autoAlpha: 0, y: -10 },
+        { autoAlpha: 1, y: 0 },
+        '-=0.4',
+      );
+
+      tl.fromTo(
+        q('.products-grid > *'),
+        { autoAlpha: 0, y: 30 },
+        { autoAlpha: 1, y: 0, stagger: 0.15 },
+        '-=0.2',
+      );
+
+      tl.fromTo(
+        q('.info-panels .info-card'),
+        { autoAlpha: 0, x: 50 },
+        { autoAlpha: 1, x: 0, stagger: 0.2 },
+        '-=0.3',
+      );
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
-      <main id="products">
+      <main
+        id="products"
+        ref={pageRef}>
         <section className="products-section">
           <header className="products-head">
             <h1 className="txt-title">Our Products</h1>
