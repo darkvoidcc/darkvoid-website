@@ -40,15 +40,6 @@ export function Header() {
           />
           Status
         </RouterLink>
-        <RouterLink
-          to="/contact"
-          className={`${styles.link} txt-body`}>
-          <Icon
-            name="contact"
-            className={styles.icon}
-          />
-          Contact
-        </RouterLink>
       </nav>
     </header>
   );
