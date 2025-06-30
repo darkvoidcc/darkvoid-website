@@ -25,6 +25,13 @@ import { ReactComponent as Website } from '../assets/icons/Website Icon.svg';
 import { ReactComponent as Activity } from '../assets/icons/Activity Icon.svg';
 import { ReactComponent as EyeOff } from '../assets/icons/Eye Off Icon.svg';
 import { ReactComponent as Flag } from '../assets/icons/Flag Icon.svg';
+import { ReactComponent as Telegram } from '../assets/icons/Telegram Icon.svg';
+import { ReactComponent as Discord } from '../assets/icons/Discord Icon.svg';
+import { ReactComponent as Globe } from '../assets/icons/Globe Purchase Icon.svg';
+import { ReactComponent as Nvidia } from '../assets/icons/nvidia.svg';
+import { ReactComponent as ARM } from '../assets/icons/arm.svg';
+import { ReactComponent as Intel } from '../assets/icons/intel.svg';
+import { ReactComponent as FlagPurchase } from '../assets/icons/Flag Purchase Icon.svg';
 
 // Icon types
 export type IconName =
@@ -53,7 +60,14 @@ export type IconName =
   | 'website'
   | 'activity'
   | 'eyeOff'
-  | 'flag';
+  | 'flag'
+  | 'telegram'
+  | 'flagPurchase'
+  | 'globe'
+  | 'nvidia'
+  | 'intel'
+  | 'arm'
+  | 'discord';
 
 const iconMap: Record<
   IconName,
@@ -85,6 +99,13 @@ const iconMap: Record<
   activity: Activity,
   flag: Flag,
   eyeOff: EyeOff,
+  telegram: Telegram,
+  discord: Discord,
+  globe: Globe,
+  nvidia: Nvidia,
+  arm: ARM,
+  intel: Intel,
+  flagPurchase: FlagPurchase,
 };
 
 interface IconProps {

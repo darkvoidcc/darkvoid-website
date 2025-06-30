@@ -1,0 +1,71 @@
+/* src/components/ModeSelector.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #e7e1f008;
+  border-radius: 16px;
+  background: #e7e1f003;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  background: rgba(23, 19, 16, 0.6);
+}
+
+/* Active state: stronger border + subtle light overlay */
+.active {
+  border: 2px solid #e7e1f018;
+  background: #e7e1f006;
+}
+
+/* Hide native radio, style dot via accent-color */
+.input {
+  margin-right: 16px;
+  accent-color: var(--text-secondary);
+}
+
+.card.active .input {
+  accent-color: var(--text-color);
+}
+
+.content {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.title {
+  font-family: var(--text-body);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.price {
+  font-family: 'Kode Mono', monospace;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.desc {
+  margin-top: 4px;
+  margin-left: 29px;
+  font-size: 10px;
+  color: var(--text-secondary);
+}
