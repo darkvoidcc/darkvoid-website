@@ -1,15 +1,15 @@
 import { useState } from 'react';
+import Separator from '../components/Separator';
 import styles from './ProductDetail.module.css';
-import { Icon } from '../components/Icon';
 import { Button } from '../components/Button';
 import preview1 from '../assets/images/valorant_preview1.png';
 import preview2 from '../assets/images/valorant_preview2.png';
+import { Icon } from '../components/Icon';
 
 const product = {
   title: 'Valorant',
   tags: ['BOX ESP', 'SKELETON ESP'],
-  description: `Experience Valorant like never before with our carefully crafted cheat,
-designed for players who demand both power and security.`,
+  description: `Experience Valorant like never before with our carefully crafted cheat, designed for players who demand both power and safety. This undetectable hack delivers the perfect blend of competitive edge and security, giving you enhanced features to dominate every match while staying completely under the radar. Why choose between strength and protection when you can have it all? Elevate your gameplay with the Valorant cheat you’ve always wished for—powerful, secure, and built to keep you ahead of the game.`,
   status: 'up-to-date' as const,
   warnings: `To better understand bans, please join our Discord community and read our #anti-ban-guide.`,
   supported: ['22H2', '23H2', '24H2'],
@@ -41,14 +41,17 @@ export default function ProductDetail() {
     <main className={styles.container}>
       <div className={styles.columns}>
         <section className={styles.content}>
-          <header className={styles.title}>
-            <span className={styles.section}>Products</span>
-            <span className={styles.separator}>/</span>
-            <span className={styles.subtitle}>{product.title}</span>
-          </header>
+          <div className={styles.productHeader}>
+            <header className={styles.title}>
+              <span className={styles.section}>Products</span>
+              <span className={styles.separator}>/</span>
+              <span className={styles.subtitle}>{product.title}</span>
+            </header>
 
-          <span className={styles.status}>{product.status.toUpperCase()}</span>
-
+            <span className={styles.status}>
+              {product.status.toUpperCase()}
+            </span>
+          </div>
           <div className={styles.tags}>
             {product.tags.map((t) => (
               <span
@@ -61,15 +64,20 @@ export default function ProductDetail() {
 
           <p className={styles.paragraph}>{product.description}</p>
 
-          <div className={styles.warning}>
-            <Icon name="error" />
-            <strong>Ban Risk</strong>
-            <p>{product.warnings}</p>
-          </div>
-
           <div className={styles.platforms}>
-            <strong>Supported Platforms</strong>
-            <p>{product.supported.join(', ')}</p>
+            <strong>SUPPORTED PLATFORMS</strong>
+            <div>
+              <p>{product.supported.join(', ')}</p>
+              <div style={{ display: 'flex', gap: '4px' }}>
+                <Icon name="intel" />
+                <Icon name="nvidia" />
+                <Icon name="arm" />
+              </div>
+            </div>
+          </div>
+          <div className={styles.warning}>
+            <strong>BAN RISK</strong>
+            <p>{product.warnings}</p>
           </div>
 
           <div className={styles.preview}>
@@ -83,11 +91,25 @@ export default function ProductDetail() {
           </div>
         </section>
 
-        <aside className={styles.promos}>
-          <h2 className={styles.heading}>Checkout</h2>
+        <aside className={styles.checkout}>
+          <div className={styles.checkoutHeader}>
+            <Icon
+              name="cart"
+              className={styles.checkoutIcon}
+            />{' '}
+            <h2 className={styles.checkoutHeading}>Checkout</h2>
+          </div>
           <p className={styles.paragraph}>
-            Select your region so we can find a convenient payment method.
+            Select your region so we can find a convenient payment method for
+            you.
           </p>
+
+          <Separator
+            color="var(--text-color)"
+            dashLength={12}
+            gapLength={6}
+            thickness={2}
+          />
 
           <div className={styles.regionToggle}>
             <Button className={styles.regionBtn}>Global region</Button>
@@ -97,7 +119,6 @@ export default function ProductDetail() {
               CIS Region
             </Button>
           </div>
-
           <div className={styles.modeOptions}>
             {product.modes.map((mode) => (
               <label
@@ -121,19 +142,15 @@ export default function ProductDetail() {
               </label>
             ))}
           </div>
-
           <hr className={styles.divider} />
-
           <div className={styles.total}>
             <strong>€{selectedMode.price.toFixed(2)}</strong>
           </div>
-
           <Button
             className={styles.paymentBtn}
             onClick={handlePayment}>
             Continue to Payment
           </Button>
-
           <p className={styles.terms}>
             By continuing, you accept{' '}
             <a href="/resources/terms">Terms of Services</a>

@@ -28,6 +28,9 @@ import { ReactComponent as Flag } from '../assets/icons/Flag Icon.svg';
 import { ReactComponent as Telegram } from '../assets/icons/Telegram Icon.svg';
 import { ReactComponent as Discord } from '../assets/icons/Discord Icon.svg';
 import { ReactComponent as Globe } from '../assets/icons/Globe Purchase Icon.svg';
+import { ReactComponent as Nvidia } from '../assets/icons/nvidia.svg';
+import { ReactComponent as ARM } from '../assets/icons/arm.svg';
+import { ReactComponent as Intel } from '../assets/icons/intel.svg';
 import { ReactComponent as FlagPurchase } from '../assets/icons/Flag Purchase Icon.svg';
 
 // Icon types
@@ -61,6 +64,9 @@ export type IconName =
   | 'telegram'
   | 'flagPurchase'
   | 'globe'
+  | 'nvidia'
+  | 'intel'
+  | 'arm'
   | 'discord';
 
 const iconMap: Record<
@@ -96,6 +102,9 @@ const iconMap: Record<
   telegram: Telegram,
   discord: Discord,
   globe: Globe,
+  nvidia: Nvidia,
+  arm: ARM,
+  intel: Intel,
   flagPurchase: FlagPurchase,
 };
 
