@@ -5,6 +5,7 @@ import { Button } from '../components/Button';
 import preview1 from '../assets/images/valorant_preview1.png';
 import preview2 from '../assets/images/valorant_preview2.png';
 import { Icon } from '../components/Icon';
+import RegionToggle, { Region } from '../components/RegionToggle';
 
 const product = {
   title: 'Valorant',
@@ -32,6 +33,7 @@ const product = {
 
 export default function ProductDetail() {
   const [selectedMode, setSelectedMode] = useState(product.modes[1]);
+  const [region, setRegion] = useState<Region>('global');
 
   const handlePayment = () => {
     window.location.href = selectedMode.checkoutUrl;
@@ -111,14 +113,11 @@ export default function ProductDetail() {
             thickness={2}
           />
 
-          <div className={styles.regionToggle}>
-            <Button className={styles.regionBtn}>Global region</Button>
-            <Button
-              className={`${styles.regionBtn} ${styles.disabled}`}
-              disabled>
-              CIS Region
-            </Button>
-          </div>
+          <RegionToggle
+            selected={region}
+            onChange={setRegion}
+          />
+
           <div className={styles.modeOptions}>
             {product.modes.map((mode) => (
               <label
