@@ -11,7 +11,6 @@ body {
   background-color: #181624;
 }
 
-/* Layout */
 .container {
   margin: 0 auto;
   padding: 50px;
@@ -23,7 +22,6 @@ body {
   gap: 16px;
 }
 
-/* LEFT PANEL */
 .content {
   background: rgba(23, 19, 16, 0.6);
   border: 1px solid rgba(249, 248, 239, 0.2);
@@ -42,7 +40,6 @@ body {
   justify-content: space-between;
 }
 
-/* Page title */
 .title {
   display: flex;
   align-items: baseline;
@@ -71,7 +68,6 @@ body {
   color: var(--text-color);
 }
 
-/* Status badge */
 .status {
   display: inline-block;
   padding: 6px 12px;
@@ -82,7 +78,6 @@ body {
   background: rgba(52, 199, 89, 0.2);
 }
 
-/* Tags */
 .tags {
   margin-top: 16px;
   display: flex;
@@ -100,7 +95,6 @@ body {
   background: transparent;
 }
 
-/* Text */
 .paragraph {
   margin: 8px 0 0;
   color: var(--text-color);
@@ -108,14 +102,12 @@ body {
   font-size: 14px;
 }
 
-/* Divider */
 .divider {
   border: none;
   border-top: 1px solid rgba(249, 248, 239, 0.2);
   margin: 16px 0;
 }
 
-/* Warning box */
 .warning {
   display: flex;
   align-items: flex-start;
@@ -140,13 +132,11 @@ body {
 .platforms {
   margin-top: 16px;
 }
-
 .platforms strong {
   display: block;
   margin-bottom: 8px;
   color: var(--text-color);
 }
-
 .platforms p {
   margin: 0;
   color: var(--text-color);
@@ -229,44 +219,47 @@ body {
   font-size: 0.75rem;
   color: var(--text-color);
 }
-
 .terms a {
   color: var(--text-color-secondary);
   text-decoration: underline;
 }
 
-/* Tablet */
+/* ========== Responsive ========== */
+
+/* Tablet / small desktop */
 @media (max-width: 1024px) {
-  .columns {
-    grid-template-columns: 1fr;
-  }
   .container {
     padding: 25px;
   }
-  .title {
-    font-size: 2rem;
-    margin-bottom: 24px;
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
-  .heading {
-    font-size: 1.2rem;
-  }
-  .paragraph,
-  .warning p,
-  .platforms p,
-  .modeOption p,
-  .list,
-  .note {
-    font-size: 14px;
-  }
-  .promos {
-    width: 100%;
+  .checkout {
+    padding: 24px;
   }
 }
 
 /* Phone */
 @media (max-width: 600px) {
+  .container {
+    padding: 16px;
+  }
   .title {
-    font-size: 1.75rem;
-    margin-bottom: 16px;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  .separator {
+    font-size: 20px;
+  }
+  .preview {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .preview img {
+    width: 100%;
+  }
+  .checkout {
+    padding: 16px;
   }
 }
