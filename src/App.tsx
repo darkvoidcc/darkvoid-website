@@ -20,7 +20,7 @@ function App() {
         style={{
           position: 'relative',
           minHeight: '100vh',
-          backgroundImage: `url(${banner})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${banner})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}>
