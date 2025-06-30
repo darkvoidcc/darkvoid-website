@@ -1,4 +1,3 @@
-// src/pages/ProductDetail.tsx
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Separator from '../components/Separator';
@@ -18,14 +17,8 @@ export default function ProductDetail({
 }: ProductDetailProps) {
   const { slug } = useParams<{ slug?: string }>();
   const navigate = useNavigate();
-  console.log('slug:', JSON.stringify(slug));
-  console.log(
-    'products slugs:',
-    products.map((p) => p.slug),
-  );
   const product = products.find((p) => p.slug === slug);
 
-  // Hooks – unconditional
   const [region, setRegion] = useState<Region>('global');
   const [modes, setModes] = useState<Mode[]>(product?.modes || []);
   const [selectedModeName, setSelectedModeName] = useState(
@@ -46,7 +39,7 @@ export default function ProductDetail({
   useEffect(() => {
     if (setProductBackground) setProductBackground(slug);
     return () => {
-      if (setProductBackground) setProductBackground(); // Çıkınca solar'a dön
+      if (setProductBackground) setProductBackground();
     };
   }, [slug, setProductBackground]);
 
