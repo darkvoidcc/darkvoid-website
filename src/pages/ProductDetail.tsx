@@ -9,7 +9,13 @@ import { Icon } from '../components/Icon';
 import styles from './ProductDetail.module.css';
 import { products } from '../data/productsData';
 
-export default function ProductDetail() {
+interface ProductDetailProps {
+  setProductBackground?: (slug?: string) => void;
+}
+
+export default function ProductDetail({
+  setProductBackground,
+}: ProductDetailProps) {
   const { slug } = useParams<{ slug?: string }>();
   const navigate = useNavigate();
   console.log('slug:', JSON.stringify(slug));
@@ -36,6 +42,13 @@ export default function ProductDetail() {
       setSelectedModeName(product.modes[0].name);
     }
   }, [product, region]);
+
+  useEffect(() => {
+    if (setProductBackground) setProductBackground(slug);
+    return () => {
+      if (setProductBackground) setProductBackground(); // Çıkınca solar'a dön
+    };
+  }, [slug, setProductBackground]);
 
   if (!slug) {
     return <div>Loading...</div>;

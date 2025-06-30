@@ -9,10 +9,28 @@ import AntiBanGuide from './pages/resources/AntiBanGuide';
 import Terms from './pages/resources/Terms';
 import Privacy from './pages/resources/Privacy';
 import Status from './pages/Status';
-import banner from './assets/images/valorant.webp';
 import FAQ from './pages/resources/FAQ';
+import { useState, useCallback } from 'react';
+import gradient from './assets/images/Gradient.webp';
+import { products } from './data/productsData';
 
 function App() {
+  const [backgroundImage, setBackgroundImage] = useState<string>(gradient);
+
+  // Ürün detayına girildiğinde arka planı değiştir
+  const handleSetProductBackground = useCallback((slug?: string) => {
+    if (!slug) {
+      setBackgroundImage(gradient);
+      return;
+    }
+    const product = products.find((p) => p.slug === slug);
+    if (product && product.thumbnail) {
+      setBackgroundImage(product.thumbnail);
+    } else {
+      setBackgroundImage(gradient);
+    }
+  }, []);
+
   return (
     <Router>
       <div
@@ -20,7 +38,7 @@ function App() {
         style={{
           position: 'relative',
           minHeight: '100vh',
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${banner})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}>
@@ -37,7 +55,11 @@ function App() {
           />
           <Route
             path="/products/:slug"
-            element={<ProductDetail />}
+            element={
+              <ProductDetail
+                setProductBackground={handleSetProductBackground}
+              />
+            }
           />
 
           <Route

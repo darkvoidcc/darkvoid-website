@@ -6,7 +6,7 @@ import CSGOImage from '../assets/images/counterstrike.webp';
 import GenshinImpactImage from '../assets/images/genshinimpact.webp';
 import RobloxImage from '../assets/images/roblox.webp';
 import TheFinalsImage from '../assets/images/thefinals.webp';
-import SecretLabImage from '../assets/images/seretlab.webp';
+import SecretLabImage from '../assets/images/secretlab.webp';
 
 export interface Mode {
   name: string;
