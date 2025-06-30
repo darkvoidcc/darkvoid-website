@@ -95,7 +95,7 @@ export default function ProductDetail() {
           </div>
 
           <div className={styles.preview}>
-            {product.images.map((src, i) => (
+            {product.preview.map((src, i) => (
               <img
                 key={i}
                 src={src}

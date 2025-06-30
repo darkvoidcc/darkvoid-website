@@ -26,7 +26,7 @@ export default function Products() {
             {products.map((p) => (
               <ProductCard
                 key={p.slug}
-                image={p.images[0]}
+                image={p.thumbnail}
                 price={`€${p.modes[0].price.toFixed(2)}`}
                 status={p.status as any}
                 title={p.title}

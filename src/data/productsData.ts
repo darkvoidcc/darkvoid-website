@@ -23,7 +23,8 @@ export interface Product {
   description: string;
   warnings: string;
   supported: string[];
-  images: string[];
+  thumbnail: string;
+  preview: string[];
   modes: Mode[];
 }
 
@@ -37,7 +38,8 @@ export const products: Product[] = [
 designed for players who demand both power and security.`,
     warnings: `To better understand bans, please join our Discord community and read our #anti-ban-guide.`,
     supported: ['22H2', '23H2', '24H2'],
-    images: [preview1, preview2],
+    thumbnail: ValorantImage,
+    preview: [preview1, preview2],
     modes: [
       {
         name: 'Scout Mode',
@@ -61,7 +63,8 @@ designed for players who demand both power and security.`,
     description: `Coming soon.`,
     warnings: ``,
     supported: [],
-    images: [CSGOImage],
+    thumbnail: CSGOImage,
+    preview: [],
     modes: [
       {
         name: 'Basic Mode',
@@ -79,7 +82,8 @@ designed for players who demand both power and security.`,
     description: `Coming soon.`,
     warnings: ``,
     supported: [],
-    images: [GenshinImpactImage],
+    thumbnail: GenshinImpactImage,
+    preview: [],
     modes: [
       {
         name: 'Basic Mode',
@@ -97,7 +101,8 @@ designed for players who demand both power and security.`,
     description: `Coming soon.`,
     warnings: ``,
     supported: [],
-    images: [RobloxImage],
+    thumbnail: RobloxImage,
+    preview: [],
     modes: [
       {
         name: 'Basic Mode',
@@ -115,7 +120,8 @@ designed for players who demand both power and security.`,
     description: `Coming soon.`,
     warnings: ``,
     supported: [],
-    images: [TheFinalsImage],
+    thumbnail: TheFinalsImage,
+    preview: [],
     modes: [
       {
         name: 'Basic Mode',
@@ -133,7 +139,8 @@ designed for players who demand both power and security.`,
     description: `Coming soon.`,
     warnings: ``,
     supported: [],
-    images: [SecretLabImage],
+    thumbnail: SecretLabImage,
+    preview: [],
     modes: [
       {
         name: 'Basic Mode',
