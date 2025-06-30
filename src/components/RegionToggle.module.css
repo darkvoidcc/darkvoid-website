@@ -13,11 +13,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 4px;
+  gap: 2px;
   padding: 8px 16px;
   border: none;
   background: transparent;
-  width: 90%;
 
   border-radius: 16px;
   font-family: var(--body-font);

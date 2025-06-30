@@ -13,7 +13,7 @@ body {
 
 .container {
   margin: 0 auto;
-  padding: 50px;
+  padding: 32px;
 }
 
 .columns {
@@ -76,11 +76,6 @@ body {
   font-weight: var(--outfit-medium);
   color: #34c759;
   background: rgba(52, 199, 89, 0.2);
-}
-
-.statusExpired {
-  color: #ff5b5b;
-  background: rgba(255, 91, 91, 0.2);
 }
 
 .tags {
@@ -190,7 +185,6 @@ body {
   font-weight: bold;
 }
 
-/* Total & payment */
 .total {
   text-align: right;
   color: rgba(231, 225, 240, 0.9);
