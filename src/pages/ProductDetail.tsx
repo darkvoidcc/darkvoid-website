@@ -1,31 +1,23 @@
-// src/pages/ProductDetail.tsx
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Separator from '../components/Separator';
 import RegionToggle, { Region } from '../components/RegionToggle';
 import ModeSelector, { Mode } from '../components/ModeSelector';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
+import gsap from 'gsap';
 import styles from './ProductDetail.module.css';
 import { products } from '../data/productsData';
 
-interface ProductDetailProps {
-  setProductBackground?: (slug?: string) => void;
-}
-
 export default function ProductDetail({
   setProductBackground,
-}: ProductDetailProps) {
+}: {
+  setProductBackground?: (slug?: string) => void;
+}) {
   const { slug } = useParams<{ slug?: string }>();
   const navigate = useNavigate();
-  console.log('slug:', JSON.stringify(slug));
-  console.log(
-    'products slugs:',
-    products.map((p) => p.slug),
-  );
   const product = products.find((p) => p.slug === slug);
 
-  // Hooks – unconditional
   const [region, setRegion] = useState<Region>('global');
   const [modes, setModes] = useState<Mode[]>(product?.modes || []);
   const [selectedModeName, setSelectedModeName] = useState(
@@ -44,27 +36,78 @@ export default function ProductDetail({
   }, [product, region]);
 
   useEffect(() => {
-    if (setProductBackground) setProductBackground(slug);
-    return () => {
-      if (setProductBackground) setProductBackground(); // Çıkınca solar'a dön
-    };
+    setProductBackground?.(slug);
+    return () => setProductBackground?.();
   }, [slug, setProductBackground]);
 
-  if (!slug) {
-    return <div>Loading...</div>;
-  }
-  if (!product) {
-    return <div>Couldn't find the product, redirecting...</div>;
-  }
+  const mainRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const ctx = gsap.context((self) => {
+      const q = self.selector!;
+
+      const tl = gsap.timeline({
+        defaults: { duration: 0.6, ease: 'power1.out' },
+      });
+
+      tl.fromTo(
+        q(`.${styles.productHeader}`),
+        { autoAlpha: 0, y: -20 },
+        { autoAlpha: 1, y: 0 },
+      );
+
+      tl.fromTo(
+        q(`.${styles.tags}`),
+        { autoAlpha: 0, y: -10 },
+        { autoAlpha: 1, y: 0 },
+        '-=0.4',
+      );
+      tl.fromTo(
+        q(`.${styles.paragraph}`),
+        { autoAlpha: 0, y: 20 },
+        { autoAlpha: 1, y: 0 },
+        '-=0.4',
+      );
+
+      tl.fromTo(
+        q(`.${styles.platforms}`),
+        { autoAlpha: 0, y: 20 },
+        { autoAlpha: 1, y: 0 },
+        '-=0.4',
+      ).fromTo(
+        q(`.${styles.warning}`),
+        { autoAlpha: 0, y: 20 },
+        { autoAlpha: 1, y: 0 },
+        '-=0.4',
+      );
+
+      tl.fromTo(
+        q(`.${styles.preview} img`),
+        { autoAlpha: 0, y: 20 },
+        { autoAlpha: 1, y: 0, stagger: 0.2 },
+        '-=0.4',
+      );
+
+      tl.fromTo(
+        mainRef.current!.querySelector(`.${styles.checkout}`),
+        { autoAlpha: 0, y: 40 },
+        { autoAlpha: 1, y: 0 },
+        '-=0.4',
+      );
+    }, mainRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  if (!slug) return <div>Loading...</div>;
+  if (!product) return <div>Couldn't find product…</div>;
 
   const selectedMode = modes.find((m) => m.name === selectedModeName)!;
-
-  const handlePayment = () => {
-    window.location.href = selectedMode.checkoutUrl;
-  };
+  const handlePayment = () => (window.location.href = selectedMode.checkoutUrl);
 
   return (
-    <main className={styles.container}>
+    <main
+      ref={mainRef}
+      className={styles.container}>
       <div className={styles.columns}>
         <section className={styles.content}>
           <div className={styles.productHeader}>
@@ -97,14 +140,12 @@ export default function ProductDetail({
 
           <div className={styles.platforms}>
             <strong>SUPPORTED PLATFORMS</strong>
-            <div>
-              <p>{product.supported.join(', ')}</p>
-              <div style={{ display: 'flex', gap: '4px' }}>
-                <Icon name="intel" />
-                <Icon name="nvidia" />
-                <Icon name="arm" />
-              </div>
+            <div style={{ display: 'flex', gap: '4px' }}>
+              <Icon name="intel" />
+              <Icon name="nvidia" />
+              <Icon name="arm" />
             </div>
+            <p>{product.supported.join(', ')}</p>
           </div>
 
           <div className={styles.warning}>
@@ -133,33 +174,29 @@ export default function ProductDetail({
           </div>
 
           <p className={styles.paragraph}>
-            Select your region so we can find a convenient payment method for
-            you.
+            Choose region and mode then continue to payment.
           </p>
 
           <Separator
-            color="var(--text-color)"
             dashLength={12}
             gapLength={6}
             thickness={2}
+            color="var(--text-color)"
           />
-
           <RegionToggle
             selected={region}
             onChange={setRegion}
           />
-
           <ModeSelector
             modes={modes}
             selected={selectedModeName}
             onChange={setSelectedModeName}
           />
-
           <Separator
-            color="var(--text-color)"
             dashLength={12}
             gapLength={6}
             thickness={2}
+            color="var(--text-color)"
           />
 
           <p className={styles.total}>€{selectedMode.price.toFixed(2)}</p>
@@ -169,8 +206,7 @@ export default function ProductDetail({
             Continue to Payment
           </Button>
           <p className={styles.terms}>
-            By continuing, you accept{' '}
-            <a href="/resources/terms">Terms of Services</a>
+            By continuing, you accept <a href="/resources/terms">Terms</a>.
           </p>
         </aside>
       </div>

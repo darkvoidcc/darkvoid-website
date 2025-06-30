@@ -18,7 +18,7 @@ const Separator: React.FC<SeparatorProps> = ({
     height={thickness}
     style={{
       display: 'block',
-      margin: '32px 0',
+      margin: '16px 0',
       overflow: 'visible',
       opacity: 0.2,
     }}
