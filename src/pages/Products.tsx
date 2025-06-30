@@ -2,63 +2,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ProductCard } from '../components/ProductCard';
-
-import SecretLabImage from '../assets/images/seretlab.webp';
-import ValorantImage from '../assets/images/valorant.webp';
-import CSGOImage from '../assets/images/counterstrike.webp';
-import GenshinImpactImage from '../assets/images/genshinimpact.webp';
-import RobloxImage from '../assets/images/roblox.webp';
-import TheFinalsImage from '../assets/images/thefinals.webp';
-
+import { products } from '../data/productsData';
 import SafetyImage from '../assets/images/safetyfirst.webp';
 import AlwaysUpDateImage from '../assets/images/alwaysuptodate.webp';
-
 import './Products.css';
-
-const productList = [
-  {
-    slug: 'secret-lab',
-    image: SecretLabImage,
-    price: '€4.00',
-    status: 'expired',
-    title: 'Secret Lab: SL',
-  },
-  {
-    slug: 'valorant',
-    image: ValorantImage,
-    price: '€8.00',
-    status: 'up-to-date',
-    title: 'Valorant',
-  },
-  {
-    slug: 'counter-strike-2',
-    image: CSGOImage,
-    price: '€4.00',
-    status: 'expired',
-    title: 'Counter Strike 2',
-  },
-  {
-    slug: 'genshin-impact',
-    image: GenshinImpactImage,
-    price: '€4.00',
-    status: 'expired',
-    title: 'Genshin Impact',
-  },
-  {
-    slug: 'roblox',
-    image: RobloxImage,
-    price: '€8.00',
-    status: 'expired',
-    title: 'Roblox',
-  },
-  {
-    slug: 'the-finals',
-    image: TheFinalsImage,
-    price: '€8.00',
-    status: 'expired',
-    title: 'The Finals',
-  },
-];
 
 export default function Products() {
   const navigate = useNavigate();
@@ -70,20 +17,20 @@ export default function Products() {
           <header className="products-head">
             <h1 className="txt-title">Our Products</h1>
             <p>
-              A list of all current DarkVoid products available for
-              purchase,&nbsp; as well as products we will be releasing soon.
+              A list of all current DarkVoid products available for purchase, as
+              well as products we will be releasing soon.
             </p>
           </header>
 
           <div className="products-grid">
-            {productList.map((product) => (
+            {products.map((p) => (
               <ProductCard
-                key={product.slug}
-                image={product.image}
-                price={product.price}
-                status={product.status as any}
-                title={product.title}
-                onPurchase={() => navigate(`/products/${product.slug}`)}
+                key={p.slug}
+                image={p.images[0]}
+                price={`€${p.modes[0].price.toFixed(2)}`}
+                status={p.status as any}
+                title={p.title}
+                onPurchase={() => navigate(`/products/${p.slug}`)}
               />
             ))}
           </div>
@@ -98,11 +45,10 @@ export default function Products() {
             <h3 className="info-title">Safety First.</h3>
             <p className="info-text">
               Your account’s safety is our top priority. After each game update
-              we thoroughly test our protection against&nbsp;
+              we thoroughly test our protection against{' '}
               <strong>anti-cheat</strong> systems to keep your account safe.
             </p>
           </div>
-
           <div className="info-card">
             <img
               src={AlwaysUpDateImage}

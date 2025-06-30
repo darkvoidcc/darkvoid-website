@@ -16,6 +16,7 @@
   object-fit: cover;
   display: block;
   pointer-events: none;
+  border-radius: 16px;
 }
 
 .cardContent {
