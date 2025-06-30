@@ -73,7 +73,12 @@ export default function ProductDetail({
               <span className={styles.separator}>/</span>
               <span className={styles.subtitle}>{product.title}</span>
             </header>
-            <span className={styles.status}>
+            <span
+              className={
+                product.status === 'expired'
+                  ? `${styles.status} ${styles.statusExpired}`
+                  : styles.status
+              }>
               {product.status.toUpperCase()}
             </span>
           </div>
