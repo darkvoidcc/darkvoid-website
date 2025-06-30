@@ -1,16 +1,24 @@
-import { useState } from 'react';
+// src/pages/ProductDetail.tsx
+import React, { useState, useEffect } from 'react';
 import Separator from '../components/Separator';
-import styles from './ProductDetail.module.css';
+import RegionToggle, { Region } from '../components/RegionToggle';
+import ModeSelector, { Mode } from '../components/ModeSelector';
 import { Button } from '../components/Button';
+import { Icon } from '../components/Icon';
 import preview1 from '../assets/images/valorant_preview1.png';
 import preview2 from '../assets/images/valorant_preview2.png';
-import { Icon } from '../components/Icon';
-import RegionToggle, { Region } from '../components/RegionToggle';
+import styles from './ProductDetail.module.css';
 
 const product = {
   title: 'Valorant',
   tags: ['BOX ESP', 'SKELETON ESP'],
-  description: `Experience Valorant like never before with our carefully crafted cheat, designed for players who demand both power and safety. This undetectable hack delivers the perfect blend of competitive edge and security, giving you enhanced features to dominate every match while staying completely under the radar. Why choose between strength and protection when you can have it all? Elevate your gameplay with the Valorant cheat you’ve always wished for—powerful, secure, and built to keep you ahead of the game.`,
+  description: `Experience Valorant like never before with our carefully crafted cheat,
+designed for players who demand both power and safety. This undetectable hack
+delivers the perfect blend of competitive edge and security, giving you
+enhanced features to dominate every match while staying completely under the
+radar. Why choose between strength and protection when you can have it all?
+Elevate your gameplay with the Valorant cheat you’ve always wished for—
+powerful, secure, and built to keep you ahead of the game.`,
   status: 'up-to-date' as const,
   warnings: `To better understand bans, please join our Discord community and read our #anti-ban-guide.`,
   supported: ['22H2', '23H2', '24H2'],
@@ -31,9 +39,39 @@ const product = {
   ],
 };
 
+// Global = English modes from product, CIS = Russian‐localized modes:
+const globalModes: Mode[] = product.modes;
+const cisModes: Mode[] = [
+  {
+    name: 'Режим скаута',
+    desc: 'Полный доступ на 3 дня.',
+    price: 9,
+    checkoutUrl: '/api/cis-scout',
+  },
+  {
+    name: 'Режим оператора',
+    desc: 'Полный доступ на 30 дней.',
+    price: 45,
+    checkoutUrl: '/api/cis-operator',
+  },
+];
+
 export default function ProductDetail() {
-  const [selectedMode, setSelectedMode] = useState(product.modes[1]);
   const [region, setRegion] = useState<Region>('global');
+  const [modes, setModes] = useState<Mode[]>(globalModes);
+  const [selectedModeName, setSelectedModeName] = useState<string>(
+    globalModes[0].name,
+  );
+
+  // whenever region toggles, swap in the right mode list & reset selection
+  useEffect(() => {
+    const list = region === 'cis' ? cisModes : globalModes;
+    setModes(list);
+    setSelectedModeName(list[0].name);
+  }, [region]);
+
+  // find the full Mode object for the current selection
+  const selectedMode = modes.find((m) => m.name === selectedModeName)!;
 
   const handlePayment = () => {
     window.location.href = selectedMode.checkoutUrl;
@@ -42,6 +80,7 @@ export default function ProductDetail() {
   return (
     <main className={styles.container}>
       <div className={styles.columns}>
+        {/* —— Left Content —— */}
         <section className={styles.content}>
           <div className={styles.productHeader}>
             <header className={styles.title}>
@@ -49,11 +88,11 @@ export default function ProductDetail() {
               <span className={styles.separator}>/</span>
               <span className={styles.subtitle}>{product.title}</span>
             </header>
-
             <span className={styles.status}>
               {product.status.toUpperCase()}
             </span>
           </div>
+
           <div className={styles.tags}>
             {product.tags.map((t) => (
               <span
@@ -77,6 +116,7 @@ export default function ProductDetail() {
               </div>
             </div>
           </div>
+
           <div className={styles.warning}>
             <strong>BAN RISK</strong>
             <p>{product.warnings}</p>
@@ -93,6 +133,7 @@ export default function ProductDetail() {
           </div>
         </section>
 
+        {/* —— Right Checkout Panel —— */}
         <aside className={styles.checkout}>
           <div className={styles.checkoutHeader}>
             <Icon
@@ -118,33 +159,20 @@ export default function ProductDetail() {
             onChange={setRegion}
           />
 
-          <div className={styles.modeOptions}>
-            {product.modes.map((mode) => (
-              <label
-                key={mode.name}
-                className={`${styles.modeOption} ${
-                  selectedMode.name === mode.name ? styles.active : ''
-                }`}
-                onClick={() => setSelectedMode(mode)}>
-                <input
-                  type="radio"
-                  name="mode"
-                  checked={selectedMode.name === mode.name}
-                  readOnly
-                  style={{ display: 'none' }}
-                />
-                <div>
-                  <strong>{mode.name}</strong>
-                  <p>{mode.desc}</p>
-                </div>
-                <span>€{mode.price.toFixed(2)}</span>
-              </label>
-            ))}
-          </div>
-          <hr className={styles.divider} />
-          <div className={styles.total}>
-            <strong>€{selectedMode.price.toFixed(2)}</strong>
-          </div>
+          <ModeSelector
+            modes={modes}
+            selected={selectedModeName}
+            onChange={setSelectedModeName}
+          />
+
+          <Separator
+            color="var(--text-color)"
+            dashLength={12}
+            gapLength={6}
+            thickness={2}
+          />
+
+          <p className={styles.total}>€{selectedMode.price.toFixed(2)}</p>
           <Button
             className={styles.paymentBtn}
             onClick={handlePayment}>

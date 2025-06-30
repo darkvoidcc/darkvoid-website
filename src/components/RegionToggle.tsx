@@ -4,30 +4,38 @@ import { Icon } from '../components/Icon';
 
 export type Region = 'global' | 'cis';
 
-interface RegionToggleProps {
+interface Props {
   selected: Region;
-  onChange: (region: Region) => void;
+  onChange: (r: Region) => void;
 }
 
-const RegionToggle: React.FC<RegionToggleProps> = ({ selected, onChange }) => (
-  <div className={styles.container}>
-    <button
-      type="button"
-      className={`${styles.button} ${
-        selected === 'global' ? styles.active : ''
-      }`}
-      onClick={() => onChange('global')}>
-      <Icon name="globe" />
-      <span>Global region</span>
-    </button>
-    <button
-      type="button"
-      className={`${styles.button} ${selected === 'cis' ? styles.active : ''}`}
-      onClick={() => onChange('cis')}>
-      <Icon name="flagPurchase" />
-      <span>CIS Region</span>
-    </button>
-  </div>
-);
-
-export default RegionToggle;
+export default function RegionToggle({ selected, onChange }: Props) {
+  return (
+    <div className={styles.container}>
+      <button
+        type="button"
+        className={`${styles.button} ${
+          selected === 'global' ? styles.active : ''
+        }`}
+        onClick={() => onChange('global')}>
+        <Icon
+          name="globe"
+          color="currentColor"
+        />
+        <span>Global Region</span>
+      </button>
+      <button
+        type="button"
+        className={`${styles.button} ${
+          selected === 'cis' ? styles.active : ''
+        }`}
+        onClick={() => onChange('cis')}>
+        <Icon
+          name="flagPurchase"
+          color="currentColor"
+        />
+        <span>CIS Region</span>
+      </button>
+    </div>
+  );
+}

@@ -5,20 +5,24 @@
   padding: 6px;
   border: 1px solid rgba(249, 248, 239, 0.08);
   gap: 4px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .button {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  column-gap: 4px;
   padding: 8px 16px;
   border: none;
   background: transparent;
+  width: 90%;
 
   border-radius: 16px;
   font-family: var(--body-font);
   font-size: var(--body-size);
-  color: var(--text-secondary);
+  color: rgba(231, 225, 240, 0.2);
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }
