@@ -1,11 +1,9 @@
 .resources {
   max-width: 1200px;
   margin: 0 auto;
-  min-height: calc(
-    100vh - 120px
-  ); /* Minimum height to fill viewport minus header/footer */
-  max-height: calc(100vh - 120px); /* Cap height to avoid excessive length */
-  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  min-height: calc(100vh - 120px);
+  max-height: calc(100vh - 120px);
+  overflow-y: hidden;
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -13,19 +11,15 @@
 
 .title {
   font-family: var(--title), sans-serif;
-  font-size: clamp(
-    1.5rem,
-    4vw,
-    2.5rem
-  ); /* Scales font size between 1.5rem and 2.5rem */
+  font-size: clamp(1.5rem, 4vw, 3rem);
   color: var(--text-color-secondary);
-  margin-bottom: clamp(24px, 2.5vw, 32px); /* Scales margin */
+  margin-bottom: clamp(24px, 2.5vw, 48px);
   text-align: left;
 }
 
 .cards {
   display: flex;
-  gap: clamp(16px, 2.5vw, 32px); /* Scales gap */
+  gap: clamp(16px, 2.5vw, 48px);
   flex: 1;
   width: 100%;
 }
@@ -41,61 +35,60 @@
 .right > .card {
   flex: 1;
   width: 100%;
-  min-height: 0; /* Prevent cards from stretching excessively */
+  min-height: 0;
 }
 
 .right {
   justify-content: space-between;
-  gap: clamp(24px, 3vw, 36px); /* Scales gap */
+  gap: clamp(24px, 3vw, 48px);
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: clamp(6px, 1vw, 8px); /* Scales gap */
-  padding-inline: clamp(16px, 2.5vw, 32px); /* Scales padding */
+  gap: clamp(6px, 1vw, 12px);
+  padding-inline: clamp(16px, 2.5vw, 48px);
 }
 
 .card {
   background-color: var(--dark-color);
   border: 1px solid var(--text-color-secondary);
-  border-radius: clamp(20px, 2.5vw, 30px); /* Scales border radius */
+  border-radius: clamp(20px, 2.5vw, 40px);
   display: flex;
   flex-direction: column;
-  padding: clamp(16px, 2vw, 24px); /* Scales padding */
-  max-height: clamp(200px, 25vw, 300px); /* Scales max height */
-  min-height: clamp(150px, 20vw, 200px); /* Scales min height */
-  overflow-y: auto; /* Allow scrolling if content exceeds max-height */
+  padding: clamp(16px, 2vw, 32px);
+  min-height: clamp(150px, 20vw, 300px);
+  overflow-y: auto;
 }
 
 .cardTitle {
-  margin: 0 0 clamp(8px, 1.2vw, 12px) 0; /* Scales margin */
+  margin: 0 0 clamp(8px, 1.2vw, 16px) 0;
   font-family: var(--subtitle1), sans-serif;
-  font-size: clamp(1rem, 2vw, 1.25rem); /* Scales font size */
+  font-size: clamp(1rem, 2vw, 1.5rem);
   color: var(--text-color-secondary);
 }
 
 .cardDescription {
-  margin: 0 0 clamp(12px, 1.5vw, 16px) 0; /* Scales margin */
+  margin: 0 0 clamp(12px, 1.5vw, 20px) 0;
   font-family: var(--body), sans-serif;
-  font-size: clamp(0.85rem, 1.5vw, 1rem); /* Scales font size */
+  font-size: clamp(0.85rem, 1.5vw, 1.2rem);
   color: var(--text-color);
-  flex: 1; /* Allow description to fill available space */
-  overflow-wrap: break-word; /* Ensure long text wraps */
+  flex: 1;
+  overflow-wrap: break-word;
 }
 
 .cardLink {
   font-family: var(--body), sans-serif;
-  font-size: clamp(0.75rem, 1.5vw, 0.9rem); /* Scales font size */
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
   text-decoration: underline;
   color: var(--text-color-secondary);
   align-self: flex-start;
-  margin-top: auto; /* Push link to the bottom */
+  margin-top: auto;
 }
 
 .footerLink {
   font-family: 'Kode mono', monospace;
-  font-size: clamp(0.75rem, 1.5vw, 0.9rem); /* Scales font size */
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
   font-weight: 700;
   text-decoration: underline;
   color: var(--text-color);
@@ -105,7 +98,7 @@
   .resources {
     height: auto;
     max-height: none;
-    padding: clamp(12px, 2vw, 16px); /* Scales padding */
+    padding: clamp(12px, 2vw, 16px);
   }
   .cards {
     flex-direction: column;
@@ -123,18 +116,17 @@
   }
   .right {
     justify-content: flex-start;
-    gap: clamp(20px, 2.5vw, 32px); /* Scales gap */
+    gap: clamp(20px, 2.5vw, 32px);
   }
   .links {
-    padding-inline: clamp(12px, 2vw, 24px); /* Scales padding */
+    padding-inline: clamp(12px, 2vw, 24px);
   }
   .title {
-    font-size: clamp(1.2rem, 3vw, 2rem); /* Adjusted for tablets */
+    font-size: clamp(1.2rem, 3vw, 2rem);
   }
   .card {
-    padding: clamp(12px, 1.8vw, 20px); /* Scales padding */
-    max-height: clamp(180px, 22vw, 280px); /* Scales max height */
-    min-height: clamp(140px, 18vw, 180px); /* Scales min height */
+    padding: clamp(12px, 1.8vw, 20px);
+    min-height: clamp(140px, 18vw, 180px);
   }
   .cardTitle {
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
@@ -149,22 +141,21 @@
 
 @media (max-width: 600px) {
   .resources {
-    padding-inline: clamp(12px, 2vw, 16px); /* Scales padding */
+    padding-inline: clamp(12px, 2vw, 16px);
   }
   .title {
-    font-size: clamp(1rem, 2.5vw, 1.75rem); /* Adjusted for phones */
-    margin-bottom: clamp(16px, 2vw, 24px); /* Scales margin */
+    font-size: clamp(1rem, 2.5vw, 1.75rem);
+    margin-bottom: clamp(16px, 2vw, 24px);
   }
   .cards {
-    gap: clamp(16px, 2vw, 24px); /* Scales gap */
+    gap: clamp(16px, 2vw, 24px);
   }
   .card {
-    padding: clamp(12px, 1.5vw, 16px); /* Scales padding */
-    max-height: clamp(150px, 20vw, 250px); /* Scales max height */
-    min-height: clamp(120px, 16vw, 160px); /* Scales min height */
+    padding: clamp(12px, 1.5vw, 16px);
+    min-height: clamp(120px, 16vw, 160px);
   }
   .links {
-    padding-inline: clamp(12px, 1.5vw, 16px); /* Scales padding */
+    padding-inline: clamp(12px, 1.5vw, 16px);
   }
   .cardTitle {
     font-size: clamp(0.85rem, 1.5vw, 1rem);
