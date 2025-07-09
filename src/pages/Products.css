@@ -188,9 +188,10 @@ body {
 
 @media (min-width: 1920px) {
   #products {
-    max-width: 1600px;
-    padding: clamp(20px, 2.5vw, 30px);
+    width: 100vw;
+    padding: clamp(24px, 2vw, 48px);
     gap: clamp(24px, 2.5vw, 32px);
+    box-sizing: border-box;
   }
   .products-head h1 {
     font-size: clamp(2.5rem, 3vw + 1rem, 4rem);

@@ -1,22 +1,31 @@
 .resources {
   max-width: 1200px;
   margin: 0 auto;
-  height: calc(100vh - 120px);
+  min-height: calc(
+    100vh - 120px
+  ); /* Minimum height to fill viewport minus header/footer */
+  max-height: calc(100vh - 120px); /* Cap height to avoid excessive length */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
   display: flex;
   flex-direction: column;
+  padding: 16px;
 }
 
 .title {
   font-family: var(--title), sans-serif;
-  font-size: var(--title-font-size);
+  font-size: clamp(
+    1.5rem,
+    4vw,
+    2.5rem
+  ); /* Scales font size between 1.5rem and 2.5rem */
   color: var(--text-color-secondary);
-  margin-bottom: 32px;
+  margin-bottom: clamp(24px, 2.5vw, 32px); /* Scales margin */
   text-align: left;
 }
 
 .cards {
   display: flex;
-  gap: 32px;
+  gap: clamp(16px, 2.5vw, 32px); /* Scales gap */
   flex: 1;
   width: 100%;
 }
@@ -32,55 +41,61 @@
 .right > .card {
   flex: 1;
   width: 100%;
+  min-height: 0; /* Prevent cards from stretching excessively */
 }
 
 .right {
   justify-content: space-between;
-  gap: 36px;
+  gap: clamp(24px, 3vw, 36px); /* Scales gap */
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-inline: 32px;
+  gap: clamp(6px, 1vw, 8px); /* Scales gap */
+  padding-inline: clamp(16px, 2.5vw, 32px); /* Scales padding */
 }
 
 .card {
   background-color: var(--dark-color);
   border: 1px solid var(--text-color-secondary);
-  border-radius: 30px;
+  border-radius: clamp(20px, 2.5vw, 30px); /* Scales border radius */
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  padding: clamp(16px, 2vw, 24px); /* Scales padding */
+  max-height: clamp(200px, 25vw, 300px); /* Scales max height */
+  min-height: clamp(150px, 20vw, 200px); /* Scales min height */
+  overflow-y: auto; /* Allow scrolling if content exceeds max-height */
 }
 
 .cardTitle {
-  margin: 0 0 12px 0;
+  margin: 0 0 clamp(8px, 1.2vw, 12px) 0; /* Scales margin */
   font-family: var(--subtitle1), sans-serif;
-  font-size: var(--subtitle1-font-size);
+  font-size: clamp(1rem, 2vw, 1.25rem); /* Scales font size */
   color: var(--text-color-secondary);
 }
 
 .cardDescription {
-  margin: 0 0 24px 0;
+  margin: 0 0 clamp(12px, 1.5vw, 16px) 0; /* Scales margin */
   font-family: var(--body), sans-serif;
-  font-size: var(--body-font-size);
+  font-size: clamp(0.85rem, 1.5vw, 1rem); /* Scales font size */
   color: var(--text-color);
-  flex: 1;
+  flex: 1; /* Allow description to fill available space */
+  overflow-wrap: break-word; /* Ensure long text wraps */
 }
 
 .cardLink {
   font-family: var(--body), sans-serif;
-  font-size: var(--link-font-size);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem); /* Scales font size */
   text-decoration: underline;
   color: var(--text-color-secondary);
   align-self: flex-start;
+  margin-top: auto; /* Push link to the bottom */
 }
 
 .footerLink {
   font-family: 'Kode mono', monospace;
-  font-size: var(--link-font-size);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem); /* Scales font size */
   font-weight: 700;
   text-decoration: underline;
   color: var(--text-color);
@@ -89,6 +104,8 @@
 @media (max-width: 1024px) {
   .resources {
     height: auto;
+    max-height: none;
+    padding: clamp(12px, 2vw, 16px); /* Scales padding */
   }
   .cards {
     flex-direction: column;
@@ -106,28 +123,56 @@
   }
   .right {
     justify-content: flex-start;
-    gap: 32px;
+    gap: clamp(20px, 2.5vw, 32px); /* Scales gap */
   }
   .links {
-    padding-inline: 24px;
+    padding-inline: clamp(12px, 2vw, 24px); /* Scales padding */
+  }
+  .title {
+    font-size: clamp(1.2rem, 3vw, 2rem); /* Adjusted for tablets */
+  }
+  .card {
+    padding: clamp(12px, 1.8vw, 20px); /* Scales padding */
+    max-height: clamp(180px, 22vw, 280px); /* Scales max height */
+    min-height: clamp(140px, 18vw, 180px); /* Scales min height */
+  }
+  .cardTitle {
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  }
+  .cardDescription {
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  }
+  .cardLink {
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
   }
 }
 
 @media (max-width: 600px) {
   .resources {
-    padding-inline: 16px;
+    padding-inline: clamp(12px, 2vw, 16px); /* Scales padding */
   }
   .title {
-    font-size: calc(var(--title-font-size) * 0.8);
-    margin-bottom: 24px;
+    font-size: clamp(1rem, 2.5vw, 1.75rem); /* Adjusted for phones */
+    margin-bottom: clamp(16px, 2vw, 24px); /* Scales margin */
   }
   .cards {
-    gap: 24px;
+    gap: clamp(16px, 2vw, 24px); /* Scales gap */
   }
   .card {
-    padding: 24px;
+    padding: clamp(12px, 1.5vw, 16px); /* Scales padding */
+    max-height: clamp(150px, 20vw, 250px); /* Scales max height */
+    min-height: clamp(120px, 16vw, 160px); /* Scales min height */
   }
   .links {
-    padding-inline: 16px;
+    padding-inline: clamp(12px, 1.5vw, 16px); /* Scales padding */
+  }
+  .cardTitle {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+  }
+  .cardDescription {
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+  }
+  .cardLink {
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
   }
 }
