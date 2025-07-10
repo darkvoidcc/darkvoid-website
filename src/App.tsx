@@ -1,10 +1,6 @@
+// src/App.tsx
 import { useState, useCallback, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
@@ -32,6 +28,7 @@ function AppContent() {
 
   useEffect(() => {
     if (location.pathname.startsWith('/products/')) return;
+
     if (location.pathname.startsWith('/resources')) {
       setBgImage('');
     } else {
@@ -105,9 +102,5 @@ function AppContent() {
 }
 
 export default function App() {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
-  );
+  return <AppContent />;
 }
