@@ -1,4 +1,5 @@
 import { JSX, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Icon } from './Icon';
 import { Button } from './Button';
 import styles from './Main.module.css';
@@ -15,15 +16,22 @@ import gsap from 'gsap';
  */
 export function Main(): JSX.Element {
   const mainRef = useRef<HTMLElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { duration: 0.6, ease: 'power1.out' } });
+      const tl = gsap.timeline({
+        defaults: { duration: 0.6, ease: 'power1.out' },
+      });
 
       // Logo animation
       tl.from(`.${styles.logoIcon}`, { opacity: 0, y: -30 })
         // Main text animations
-        .from(`.${styles.mainText}`, { opacity: 0, x: -20, stagger: 0.2 }, '-=0.4')
+        .from(
+          `.${styles.mainText}`,
+          { opacity: 0, x: -20, stagger: 0.2 },
+          '-=0.4',
+        )
         .from(`.${styles.mainTextP}`, { opacity: 0, x: 20 }, '-=0.5')
         // Section fade-in
         .from(`.${styles.mainSection}`, { opacity: 0, y: 20 }, '-=0.4')
@@ -31,7 +39,7 @@ export function Main(): JSX.Element {
         .from(
           `.${styles.loaderImageWrapper}`,
           { y: 200, opacity: 0, duration: 0.8, ease: 'power2.out' },
-          '-=0.3'
+          '-=0.3',
         );
     }, mainRef);
 
@@ -39,8 +47,13 @@ export function Main(): JSX.Element {
   }, []);
 
   return (
-    <main ref={mainRef} className={styles.main}>
-      <Icon name="logo" className={styles.logoIcon} />
+    <main
+      ref={mainRef}
+      className={styles.main}>
+      <Icon
+        name="logo"
+        className={styles.logoIcon}
+      />
       <div className={styles.mainContent}>
         <h1 className={`${styles.mainText} txt-title`}>
           The safest gaming experience_
@@ -52,9 +65,8 @@ export function Main(): JSX.Element {
       </div>
       <section className={styles.mainSection}>
         <Button
-          onClick={() => window.open('/products', '_self')}
-          icon={<Icon name="crown" />}
-        >
+          onClick={() => navigate('/products')}
+          icon={<Icon name="crown" />}>
           Become MVP
         </Button>
       </section>
