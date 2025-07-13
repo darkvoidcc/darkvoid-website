@@ -90,7 +90,7 @@ export default function FAQ() {
           <h1 className={styles.title}>
             <span className={styles.section}>Resources</span>
             <span className={styles.separator}>/</span>
-            <span className={styles.subtitle}>Anti-ban Guide</span>
+            <span className={styles.subtitle}>Frequently Asked Questions</span>
           </h1>
           <p className="txt-desc">
             Welcome to Darkvoid’s FAQ. Here you’ll find detailed answers to the
