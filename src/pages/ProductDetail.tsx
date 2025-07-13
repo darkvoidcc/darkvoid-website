@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Separator from '../components/Separator';
 import RegionToggle, { Region } from '../components/RegionToggle';
@@ -205,9 +205,7 @@ export default function ProductDetail({
             onClick={handlePayment}>
             Continue to Payment
           </Button>
-          <p className={styles.terms}>
-            By continuing, you accept <a href="/resources/terms">Terms</a>.
-          </p>
+          <p className={styles.terms}>By continuing, you accept our terms.</p>
         </aside>
       </div>
     </main>

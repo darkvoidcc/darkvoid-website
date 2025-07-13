@@ -14,12 +14,11 @@ body {
 .container {
   margin: 0 auto;
   padding: clamp(16px, 3vw, 64px);
-  max-width: 1600px; /* Further increased max-width */
 }
 
 .columns {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); /* Ensure flexible columns */
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: clamp(16px, 3vw, 64px);
   width: 100%;
 }
@@ -221,10 +220,6 @@ body {
   margin-top: clamp(12px, 2vw, 32px);
   font-size: clamp(0.7rem, 1.2vw, 1rem);
   color: var(--text-color);
-}
-.terms a {
-  color: var(--text-color-secondary);
-  text-decoration: underline;
 }
 
 /* ========== Responsive ========== */
