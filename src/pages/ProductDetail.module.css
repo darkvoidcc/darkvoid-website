@@ -14,12 +14,11 @@ body {
 .container {
   margin: 0 auto;
   padding: clamp(16px, 3vw, 64px);
-  max-width: 1600px; /* Further increased max-width */
 }
 
 .columns {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); /* Ensure flexible columns */
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: clamp(16px, 3vw, 64px);
   width: 100%;
 }
@@ -79,6 +78,21 @@ body {
   font-weight: var(--outfit-medium);
   color: #34c759;
   background: rgba(52, 199, 89, 0.2);
+}
+
+.statusExpired {
+  color: #ff3b30;
+  background: rgba(255, 59, 48, 0.2);
+}
+
+.statusInMaintenance {
+  color: #ffcc00;
+  background-color: rgba(255, 204, 0, 0.2);
+}
+
+.statusSoon {
+  color: #7f7f7f;
+  background-color: rgba(127, 127, 127, 0.2);
 }
 
 .tags {
@@ -215,21 +229,15 @@ body {
     0px 7px 16px rgba(231, 225, 240, 0.1);
 }
 
-/* Terms */
 .terms {
   align-self: center;
   margin-top: clamp(12px, 2vw, 32px);
   font-size: clamp(0.7rem, 1.2vw, 1rem);
   color: var(--text-color);
 }
-.terms a {
-  color: var(--text-color-secondary);
-  text-decoration: underline;
-}
 
 /* ========== Responsive ========== */
 
-/* Tablet / small desktop */
 @media (max-width: 1024px) {
   .container {
     padding: clamp(16px, 2vw, 32px);

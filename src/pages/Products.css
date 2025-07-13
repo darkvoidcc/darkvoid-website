@@ -21,6 +21,7 @@ body {
     margin: 0;
     padding: clamp(12px, 1.5vw, 20px);
   }
+
   .products-section,
   .info-panels {
     width: 100%;
@@ -65,6 +66,7 @@ body {
 .products-head {
   margin-bottom: clamp(16px, 2vw, 24px);
 }
+
 .products-head h1 {
   color: var(--text-color-secondary);
   font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
@@ -95,9 +97,8 @@ body {
 
 .products-grid > * {
   background-color: rgba(23, 19, 16, 0.85);
-  border: 1px solid rgba(249, 248, 239, 0.2);
+  border: 1px solid rgba(249, 248, 239, 0.1);
   border-radius: clamp(15px, 2vw, 20px);
-  padding: clamp(12px, 1.5vw, 20px);
   box-sizing: border-box;
   min-height: 250px;
   display: flex;
@@ -136,18 +137,6 @@ body {
   font-size: clamp(0.875rem, 1.2vw, 1.25rem);
   line-height: 1.6;
   opacity: 0.8;
-}
-
-.page-footer {
-  width: 100%;
-  text-align: center;
-  padding: clamp(12px, 1.5vw, 20px);
-  font-size: clamp(0.75rem, 1vw, 1rem);
-  color: var(--text-color-secondary);
-  opacity: 0.7;
-  font-family: 'Kode Mono', monospace;
-  box-sizing: border-box;
-  margin: 0 auto;
 }
 
 @media (max-width: 599px) {
@@ -209,8 +198,5 @@ body {
   }
   .info-text {
     font-size: clamp(1rem, 1.2vw, 1.5rem);
-  }
-  .page-footer {
-    font-size: clamp(0.875rem, 1vw, 1.25rem);
   }
 }

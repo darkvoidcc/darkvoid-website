@@ -13,8 +13,8 @@ body {
 }
 
 .status-container {
-  width: 100%;
-  max-width: 1200px;
+  width: 90vw;
+  margin: 5vh auto;
   background: rgba(23, 19, 16, 0.6);
   border: 1px solid rgba(249, 248, 239, 0.2);
   border-radius: clamp(20px, 2vw, 25px);
@@ -47,27 +47,21 @@ body {
   padding: clamp(var(--padding-2), 1vw, 16px)
     clamp(var(--padding-3), 1.5vw, 20px);
   color: var(--text-color-secondary);
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(20px, 2.5vw, 32px);
 }
 
 .status-table tbody tr td {
   padding: clamp(var(--padding-2), 1vw, 16px)
     clamp(var(--padding-3), 1.5vw, 20px);
   border-top: 1px solid rgba(249, 248, 239, 0.2);
-  color: var(--text-color);
-  font-size: clamp(14px, 1.2vw, 16px);
 }
 
-.loader-cell {
-  display: flex;
-  align-items: center;
-  gap: clamp(var(--gap-2), 0.8vw, 10px);
-}
 .loader-icon {
-  width: clamp(20px, 1.5vw, 24px);
-  height: clamp(20px, 1.5vw, 24px);
+  width: clamp(20px, 5vw, 40px);
+  height: clamp(20px, 5vw, 40px);
   object-fit: contain;
-  border-radius: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
 }
 
 .header-icon {
@@ -82,17 +76,32 @@ body {
   display: inline-flex;
   align-items: center;
   gap: clamp(var(--gap-1), 0.4vw, 6px);
-  font-size: clamp(0.75rem, 0.8vw + 0.25rem, 1rem);
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
   font-weight: 500;
-  border-radius: 4px;
-  padding: clamp(4px, 0.4vw, 8px) clamp(8px, 0.8vw, 10px);
+  border-radius: clamp(10px, 10vw, 100px);
+  padding: clamp(6px, 0.6vw, 14px) clamp(6px, 1vw, 14px);
 
   & svg {
-    width: 1em;
-    height: 1em;
+    width: 1.2em;
+    height: 1.2em;
     vertical-align: middle;
     margin-right: 0.25em;
     fill: currentColor;
+  }
+}
+@media (min-width: 1800px) {
+  .status-container h1 {
+    font-size: 5vw;
+  }
+  .status-table thead th {
+    font-size: 2vw;
+  }
+  .status-table tbody td {
+    font-size: 1.3vw;
+  }
+  .status-pill {
+    font-size: 1.2vw;
+    padding: 1vw 2vw;
   }
 }
 .status-up-to-date {
@@ -110,6 +119,8 @@ body {
 
 @media (max-width: 600px) {
   .status-container {
+    width: 98vw;
+    margin: 2vw auto;
     padding: clamp(12px, 2vw, 16px);
   }
   .status-container h1 {

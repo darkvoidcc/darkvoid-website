@@ -7,9 +7,7 @@
     inset 0 -40px 30px -8px rgba(86, 163, 251, 0.5),
     inset 0 -80px 60px -30px #2256e5;
 
-  /* fluid width but capped on desktop */
   width: 100%;
-  max-width: 383px;
   height: 306px;
 
   padding: 40px 24px;

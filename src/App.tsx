@@ -1,6 +1,6 @@
-// src/App.tsx
+import NotFound from './pages/NotFound';
 import { useState, useCallback, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, HashRouter } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
@@ -96,11 +96,19 @@ function AppContent() {
           path="/resources/privacy"
           element={<Privacy />}
         />
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
       </Routes>
     </div>
   );
 }
 
 export default function App() {
-  return <AppContent />;
+  return (
+    <HashRouter>
+      <AppContent />
+    </HashRouter>
+  );
 }

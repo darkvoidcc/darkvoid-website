@@ -33,9 +33,20 @@ export default function Products() {
       );
 
       tl.fromTo(
-        q('.products-grid > *'),
+        q(
+          '.products-grid > *:not([data-status="expired"]):not([data-status="soon"])',
+        ),
         { autoAlpha: 0, y: 30 },
         { autoAlpha: 1, y: 0, stagger: 0.15 },
+        '-=0.2',
+      );
+
+      tl.fromTo(
+        q(
+          '.products-grid > [data-status="expired"], .products-grid > [data-status="soon"]',
+        ),
+        { autoAlpha: 0, y: 30 },
+        { autoAlpha: 0.5, y: 0, stagger: 0.15 },
         '-=0.2',
       );
 
@@ -70,9 +81,10 @@ export default function Products() {
                 key={p.slug}
                 image={p.thumbnail}
                 price={`€${p.modes[0].price.toFixed(2)}`}
-                status={p.status as any}
+                status={p.status}
                 title={p.title}
                 onPurchase={() => navigate(`/products/${p.slug}`)}
+                data-status={p.status}
               />
             ))}
           </div>
@@ -104,11 +116,6 @@ export default function Products() {
           </div>
         </aside>
       </main>
-
-      <footer className="page-footer">
-        DarkVoid, born in 2025, equips you and others with cutting-edge legit
-        and HUH cheating software designed to elevate gameplay for all needs.
-      </footer>
     </>
   );
 }

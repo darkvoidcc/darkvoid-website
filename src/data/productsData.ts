@@ -17,7 +17,7 @@ export interface Mode {
 export interface Product {
   slug: string;
   title: string;
-  status: 'up-to-date' | 'expired';
+  status: 'up-to-date' | 'expired' | 'in-maintenance' | 'soon';
   tags: string[];
   description: string;
   warnings: string;
@@ -57,7 +57,7 @@ designed for players who demand both power and security.`,
   {
     slug: 'counter-strike-2',
     title: 'Counter-Strike 2',
-    status: 'expired',
+    status: 'soon',
     tags: [],
     description: `Coming soon.`,
     warnings: ``,
@@ -82,7 +82,7 @@ designed for players who demand both power and security.`,
   {
     slug: 'genshin-impact',
     title: 'Genshin Impact',
-    status: 'expired',
+    status: 'soon',
     tags: [],
     description: `Coming soon.`,
     warnings: ``,
@@ -93,13 +93,13 @@ designed for players who demand both power and security.`,
       {
         name: 'Scout Mode',
         desc: '3-day full access.',
-        price: 8,
+        price: 4,
         checkoutUrl: '',
       },
       {
         name: 'Operator Mode',
         desc: '30-day full access.',
-        price: 40,
+        price: 20,
         checkoutUrl: '',
       },
     ],
@@ -107,7 +107,7 @@ designed for players who demand both power and security.`,
   {
     slug: 'roblox',
     title: 'Roblox',
-    status: 'expired',
+    status: 'soon',
     tags: [],
     description: `Coming soon.`,
     warnings: ``,
@@ -118,13 +118,13 @@ designed for players who demand both power and security.`,
       {
         name: 'Scout Mode',
         desc: '3-day full access.',
-        price: 8,
+        price: 4,
         checkoutUrl: '',
       },
       {
         name: 'Operator Mode',
         desc: '30-day full access.',
-        price: 40,
+        price: 20,
         checkoutUrl: '',
       },
     ],
@@ -132,7 +132,7 @@ designed for players who demand both power and security.`,
   {
     slug: 'the-finals',
     title: 'The Finals',
-    status: 'expired',
+    status: 'soon',
     tags: [],
     description: `Coming soon.`,
     warnings: ``,
@@ -157,7 +157,7 @@ designed for players who demand both power and security.`,
   {
     slug: 'secret-lab',
     title: 'Secret Lab: SL',
-    status: 'expired',
+    status: 'soon',
     tags: [],
     description: `Coming soon.`,
     warnings: ``,
@@ -168,13 +168,13 @@ designed for players who demand both power and security.`,
       {
         name: 'Scout Mode',
         desc: '3-day full access.',
-        price: 8,
+        price: 4,
         checkoutUrl: '',
       },
       {
         name: 'Operator Mode',
         desc: '30-day full access.',
-        price: 40,
+        price: 20,
         checkoutUrl: '',
       },
     ],

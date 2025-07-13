@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Index.module.css';
 import gsap from 'gsap';
 
@@ -6,6 +7,7 @@ export default function Resources() {
   const mainRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (!mainRef.current) return;
     const ctx = gsap.context((self) => {
       const q = self.selector!;
       const tl = gsap.timeline({
@@ -17,14 +19,12 @@ export default function Resources() {
         { autoAlpha: 0, y: -20 },
         { autoAlpha: 1, y: 0 },
       );
-
       tl.fromTo(
         q(`.${styles.cards} .card`),
         { autoAlpha: 0, scale: 0.8 },
         { autoAlpha: 1, scale: 1, stagger: 0.2 },
         '-=0.3',
       );
-
       tl.fromTo(
         q(`.${styles.links} a`),
         { autoAlpha: 0, y: 10 },
@@ -49,11 +49,11 @@ export default function Resources() {
             <p className={styles.cardDescription}>
               Everything you need to know about our platform
             </p>
-            <a
-              href="/resources/faq"
+            <Link
+              to="/resources/faq"
               className={styles.cardLink}>
               View All
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -63,24 +63,24 @@ export default function Resources() {
             <p className={styles.cardDescription}>
               How to avoid getting banned
             </p>
-            <a
-              href="/resources/antibanguide"
+            <Link
+              to="/resources/antibanguide"
               className={styles.cardLink}>
               View All
-            </a>
+            </Link>
           </div>
 
           <div className={styles.links}>
-            <a
-              href="/resources/terms"
+            <Link
+              to="/resources/terms"
               className={styles.footerLink}>
-              Term of Conditions
-            </a>
-            <a
-              href="/resources/privacy"
+              Terms of Conditions
+            </Link>
+            <Link
+              to="/resources/privacy"
               className={styles.footerLink}>
               Privacy Policy &amp; Cookies
-            </a>
+            </Link>
           </div>
         </div>
       </div>

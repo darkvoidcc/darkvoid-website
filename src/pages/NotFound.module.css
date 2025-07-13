@@ -1,0 +1,125 @@
+:global(.background-gradient) {
+  display: none !important;
+}
+
+:global(html),
+:global(body) {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #181624;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+}
+
+.container {
+  margin: auto;
+  padding: clamp(16px, 3vw, 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(23, 19, 16, 0.6);
+  border: 1px solid rgba(249, 248, 239, 0.2);
+  border-radius: clamp(15px, 2vw, 30px);
+  backdrop-filter: blur(200px);
+  -webkit-backdrop-filter: blur(200px);
+  width: 100%;
+  max-width: clamp(300px, 80vw, 600px);
+  text-align: center;
+}
+
+.title {
+  font-family: 'Outfit Semibold', sans-serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: clamp(8px, 1.5vw, 16px);
+}
+
+.subtitle {
+  font-family: 'Kode Mono', monospace;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: rgba(231, 225, 240, 0.9);
+  margin-bottom: clamp(12px, 2vw, 24px);
+}
+
+.text {
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  color: rgba(231, 225, 240, 0.6);
+  margin-bottom: clamp(16px, 2.5vw, 32px);
+}
+
+.button {
+  display: inline-block;
+  padding: clamp(10px, 1.8vw, 20px) clamp(20px, 3vw, 40px);
+  background: #e7e1f0;
+  border: none;
+  border-radius: 999px;
+  font-size: clamp(0.9rem, 1.5vw, 1.4rem);
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0px 7px 16px rgba(231, 225, 240, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background: #d1c9e6;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .container {
+    padding: clamp(16px, 2vw, 32px);
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+  }
+
+  .subtitle {
+    font-size: clamp(0.875rem, 1.8vw, 1.25rem);
+  }
+
+  .text {
+    font-size: clamp(0.75rem, 1.2vw, 1rem);
+  }
+
+  .button {
+    padding: clamp(8px, 1.5vw, 16px) clamp(16px, 2.5vw, 32px);
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  }
+
+  .subtitle {
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+  }
+
+  .text {
+    font-size: clamp(0.7rem, 1vw, 0.875rem);
+  }
+
+  .button {
+    padding: clamp(6px, 1.2vw, 12px) clamp(12px, 2vw, 24px);
+    font-size: clamp(0.7rem, 1vw, 1rem);
+  }
+}

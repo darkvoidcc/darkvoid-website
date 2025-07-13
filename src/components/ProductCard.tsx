@@ -7,7 +7,7 @@ import gsap from 'gsap';
 interface ProductCardProps {
   image: string;
   title: string;
-  status: 'up-to-date' | 'maintance' | 'expired';
+  status: 'up-to-date' | 'expired' | 'soon' | 'in-maintenance';
   price: string;
   onPurchase?: () => void;
   statusLabel?: string;
@@ -29,6 +29,16 @@ const statusConfig = {
     className: styles.statusExpired,
     label: 'Expired',
   },
+  soon: {
+    icon: 'clock',
+    className: styles.statusSoon,
+    label: 'Coming Soon',
+  },
+  'in-maintenance': {
+    icon: 'maintance',
+    className: styles.statusInMaintenance,
+    label: 'In Maintenance',
+  },
 } as const;
 
 export function ProductCard({
@@ -39,7 +49,12 @@ export function ProductCard({
   onPurchase,
   statusLabel,
 }: ProductCardProps) {
-  const config = statusConfig[status];
+  const config = statusConfig[status] ?? {
+    icon: 'error',
+    className: styles.statusExpired,
+    label: 'Unknown',
+  };
+  const isDisabled = !(status === 'up-to-date' || status === 'in-maintenance');
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -75,7 +90,10 @@ export function ProductCard({
   return (
     <div
       ref={cardRef}
-      className={styles.card}>
+      className={
+        isDisabled ? `${styles.card} ${styles.cardDisabled}` : styles.card
+      }
+      style={isDisabled ? { pointerEvents: 'none', opacity: 0.6 } : {}}>
       <img
         src={image}
         alt={title}
@@ -98,7 +116,8 @@ export function ProductCard({
           <Button
             icon={<Icon name="cart" />}
             className={styles.purchaseButton}
-            onClick={onPurchase}>
+            onClick={onPurchase}
+            disabled={isDisabled}>
             Purchase
           </Button>
         </div>

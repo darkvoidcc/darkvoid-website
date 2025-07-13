@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Separator from '../components/Separator';
 import RegionToggle, { Region } from '../components/RegionToggle';
@@ -98,11 +98,31 @@ export default function ProductDetail({
     return () => ctx.revert();
   }, []);
 
+  const selectedMode = modes.find((m) => m.name === selectedModeName);
+  const [animatedPrice, setAnimatedPrice] = useState(selectedMode?.price ?? 0);
+
+  useEffect(() => {
+    if (!selectedMode) return;
+    const obj = { val: animatedPrice };
+    const target = selectedMode.price;
+    const duration = 1.5;
+    const tween = gsap.to(obj, {
+      val: target,
+      duration,
+      ease: 'power2.out',
+      onUpdate: () => setAnimatedPrice(obj.val),
+    });
+    return () => {
+      tween.kill();
+    };
+  }, [selectedMode, animatedPrice]);
+
+  const handlePayment = () => {
+    if (selectedMode) window.location.href = selectedMode.checkoutUrl;
+  };
+
   if (!slug) return <div>Loading...</div>;
   if (!product) return <div>Couldn't find product…</div>;
-
-  const selectedMode = modes.find((m) => m.name === selectedModeName)!;
-  const handlePayment = () => (window.location.href = selectedMode.checkoutUrl);
 
   return (
     <main
@@ -118,9 +138,16 @@ export default function ProductDetail({
             </header>
             <span
               className={
-                product.status === 'expired'
-                  ? `${styles.status} ${styles.statusExpired}`
-                  : styles.status
+                `${styles.status} ` +
+                (product.status === 'expired'
+                  ? styles.statusExpired
+                  : product.status === 'up-to-date'
+                  ? styles.statusUpToDate
+                  : product.status === 'soon'
+                  ? styles.statusSoon
+                  : product.status === 'in-maintenance'
+                  ? styles.statusInMaintenance
+                  : '')
               }>
               {product.status.toUpperCase()}
             </span>
@@ -199,15 +226,13 @@ export default function ProductDetail({
             color="var(--text-color)"
           />
 
-          <p className={styles.total}>€{selectedMode.price.toFixed(2)}</p>
+          <p className={styles.total}>€{animatedPrice.toFixed(2)}</p>
           <Button
             className={styles.paymentBtn}
             onClick={handlePayment}>
             Continue to Payment
           </Button>
-          <p className={styles.terms}>
-            By continuing, you accept <a href="/resources/terms">Terms</a>.
-          </p>
+          <p className={styles.terms}>By continuing, you accept our terms.</p>
         </aside>
       </div>
     </main>
