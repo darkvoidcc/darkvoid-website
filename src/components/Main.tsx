@@ -24,18 +24,14 @@ export function Main(): JSX.Element {
         defaults: { duration: 0.6, ease: 'power1.out' },
       });
 
-      // Logo animation
       tl.from(`.${styles.logoIcon}`, { opacity: 0, y: -30 })
-        // Main text animations
         .from(
           `.${styles.mainText}`,
           { opacity: 0, x: -20, stagger: 0.2 },
           '-=0.4',
         )
         .from(`.${styles.mainTextP}`, { opacity: 0, x: 20 }, '-=0.5')
-        // Section fade-in
         .from(`.${styles.mainSection}`, { opacity: 0, y: 20 }, '-=0.4')
-        // Loader image slides up from bottom
         .from(
           `.${styles.loaderImageWrapper}`,
           { y: 200, opacity: 0, duration: 0.8, ease: 'power2.out' },

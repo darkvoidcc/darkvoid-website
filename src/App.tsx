@@ -1,3 +1,4 @@
+import NotFound from './pages/NotFound';
 import { useState, useCallback, useEffect } from 'react';
 import { Routes, Route, useLocation, HashRouter } from 'react-router-dom';
 import './App.css';
@@ -94,6 +95,10 @@ function AppContent() {
         <Route
           path="/resources/privacy"
           element={<Privacy />}
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
         />
       </Routes>
     </div>

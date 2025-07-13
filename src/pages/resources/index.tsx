@@ -7,6 +7,7 @@ export default function Resources() {
   const mainRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (!mainRef.current) return;
     const ctx = gsap.context((self) => {
       const q = self.selector!;
       const tl = gsap.timeline({
