@@ -43,8 +43,7 @@ const faqs: FAQItem[] = [
     ),
   },
   {
-    question:
-      'Which payment methods do you accept, and what happens after payment is completed?',
+    question: 'Which payment methods do you accept?',
     answer: (
       <p className="txt-desc">
         We accept payments from both international and Russian credit cards. To
@@ -59,7 +58,7 @@ const faqs: FAQItem[] = [
     ),
   },
   {
-    question: 'Where should I go if I encounter issues with the software?',
+    question: 'Where can I get help if I face software issues?',
     answer: (
       <p className="txt-desc">
         We offer help to all our customers through our official Discord server.
@@ -109,7 +108,7 @@ export default function FAQ() {
             title="Having Trouble?"
             description="If you encounter problems with our software — leave a ticket on our Discord server and we will help you."
             buttonText="Join Our Discord Server"
-            buttonUrl="https://discord.gg/yourserver"
+            buttonUrl="https://discord.gg/darkvoid"
             buttonIcon={<DiscordIcon />}
           />
 
@@ -118,7 +117,7 @@ export default function FAQ() {
             title="We also have Telegram"
             description="If you encounter problems with our software — leave a ticket on our Discord server and we will help you."
             buttonText="Join Our Telegram Group"
-            buttonUrl="https://t.me/yourgroup"
+            buttonUrl="https://t.me/darkvoid"
             buttonIcon={<TelegramIcon />}
           />
         </div>

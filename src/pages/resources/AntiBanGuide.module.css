@@ -12,6 +12,8 @@ body {
 }
 
 .container {
+  display: flex;
+  align-items: center;
   margin: 0 auto;
   padding: 16px 50px;
 }
@@ -103,11 +105,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 16px;
+  position: sticky;
+  top: 0;
 }
 
-/* Tablet and below: stack columns, adjust sizes */
 @media (max-width: 1024px) {
   .columns {
     grid-template-columns: 1fr;
@@ -132,14 +135,16 @@ body {
     font-size: 0.8rem;
   }
 
-  /* make promos fill the container */
   .promos :global(.promo) {
     width: 100% !important;
     max-width: none !important;
   }
+
+  .promos {
+    position: static;
+  }
 }
 
-/* Phone: tighter spacing */
 @media (max-width: 600px) {
   .title {
     font-size: 1.75rem;
