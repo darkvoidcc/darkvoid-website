@@ -1,6 +1,5 @@
-// src/App.tsx
 import { useState, useCallback, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, HashRouter } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
@@ -102,5 +101,9 @@ function AppContent() {
 }
 
 export default function App() {
-  return <AppContent />;
+  return (
+    <HashRouter>
+      <AppContent />
+    </HashRouter>
+  );
 }

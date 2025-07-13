@@ -1,4 +1,3 @@
-// src/pages/resources/Index.tsx
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Index.module.css';
