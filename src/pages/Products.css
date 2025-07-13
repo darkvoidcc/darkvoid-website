@@ -138,18 +138,6 @@ body {
   opacity: 0.8;
 }
 
-.page-footer {
-  width: 100%;
-  text-align: center;
-  padding: clamp(12px, 1.5vw, 20px);
-  font-size: clamp(0.75rem, 1vw, 1rem);
-  color: var(--text-color-secondary);
-  opacity: 0.7;
-  font-family: 'Kode Mono', monospace;
-  box-sizing: border-box;
-  margin: 0 auto;
-}
-
 @media (max-width: 599px) {
   #products {
     padding: clamp(10px, 1.5vw, 16px);
@@ -209,8 +197,5 @@ body {
   }
   .info-text {
     font-size: clamp(1rem, 1.2vw, 1.5rem);
-  }
-  .page-footer {
-    font-size: clamp(0.875rem, 1vw, 1.25rem);
   }
 }

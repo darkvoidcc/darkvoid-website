@@ -104,11 +104,6 @@ export default function Products() {
           </div>
         </aside>
       </main>
-
-      <footer className="page-footer">
-        DarkVoid, born in 2025, equips you and others with cutting-edge legit
-        and HUH cheating software designed to elevate gameplay for all needs.
-      </footer>
     </>
   );
 }
