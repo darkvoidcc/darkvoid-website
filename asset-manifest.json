@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/darkvoid-website/static/css/main.1b35dc9f.css",
-    "main.js": "/darkvoid-website/static/js/main.bfe87180.js",
+    "main.css": "/darkvoid-website/static/css/main.dfbc22ae.css",
+    "main.js": "/darkvoid-website/static/js/main.9abbfc12.js",
     "static/js/453.aef50261.chunk.js": "/darkvoid-website/static/js/453.aef50261.chunk.js",
     "static/media/intel.svg": "/darkvoid-website/static/media/intel.2aa20216030acad0c94eb18d475c068d.svg",
     "static/media/valorant_preview1.png": "/darkvoid-website/static/media/valorant_preview1.5123135d7a67716e6059.png",
@@ -9,10 +9,10 @@
     "static/media/nvidia.svg": "/darkvoid-website/static/media/nvidia.29481a71277161b759e7f81439aded41.svg",
     "static/media/valorant.webp": "/darkvoid-website/static/media/valorant.3813d495e2b661417cc1.webp",
     "static/media/Gradient.webp": "/darkvoid-website/static/media/Gradient.512a47238d4b709a6ff8.webp",
+    "static/media/Loader section.webp": "/darkvoid-website/static/media/Loader section.3d910dcf993881712624.webp",
     "static/media/genshinimpact.webp": "/darkvoid-website/static/media/genshinimpact.954523b937f39100eace.webp",
     "static/media/Outfit-Light.otf": "/darkvoid-website/static/media/Outfit-Light.08944c433e6bfebee4d8.otf",
     "static/media/roblox.webp": "/darkvoid-website/static/media/roblox.7d6f218bb1d4dfbc6f38.webp",
-    "static/media/Loader section.webp": "/darkvoid-website/static/media/Loader section.d1f168f6774254e0b577.webp",
     "static/media/Outfit-ExtraBold.otf": "/darkvoid-website/static/media/Outfit-ExtraBold.5151f67c6084526d7dad.otf",
     "static/media/Outfit-SemiBold.otf": "/darkvoid-website/static/media/Outfit-SemiBold.3178a5a83c690d72ff39.otf",
     "static/media/Outfit-ExtraLight.otf": "/darkvoid-website/static/media/Outfit-ExtraLight.4287247c93829d57e3d2.otf",
@@ -63,12 +63,12 @@
     "static/media/Chevron Right Icon.svg": "/darkvoid-website/static/media/Chevron Right Icon.fe6b420e9fc11fbf26964842d6a5ac60.svg",
     "static/media/loader-VL.webp": "/darkvoid-website/static/media/loader-VL.7d7b36550f0649333a4c.webp",
     "static/media/Activity Icon.svg": "/darkvoid-website/static/media/Activity Icon.4f56f83d748acb0672e2fb3590cff640.svg",
-    "main.1b35dc9f.css.map": "/darkvoid-website/static/css/main.1b35dc9f.css.map",
-    "main.bfe87180.js.map": "/darkvoid-website/static/js/main.bfe87180.js.map",
+    "main.dfbc22ae.css.map": "/darkvoid-website/static/css/main.dfbc22ae.css.map",
+    "main.9abbfc12.js.map": "/darkvoid-website/static/js/main.9abbfc12.js.map",
     "453.aef50261.chunk.js.map": "/darkvoid-website/static/js/453.aef50261.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b35dc9f.css",
-    "static/js/main.bfe87180.js"
+    "static/css/main.dfbc22ae.css",
+    "static/js/main.9abbfc12.js"
   ]
 }
