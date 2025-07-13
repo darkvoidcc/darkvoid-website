@@ -2,7 +2,6 @@
   background: var(--dark-color);
   border-radius: 20px;
   padding: 4px;
-  padding-bottom: 16px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -113,7 +112,7 @@
 }
 
 .purchaseButton {
-  border-radius: 8px 4px 8px 4px !important;
+  border-radius: 14px 7px 14px 7px !important;
   font-size: clamp(0.75rem, 1.5vw, 0.875rem) !important;
   padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 12px) !important;
   box-shadow: var(--text-inner-shadow);
