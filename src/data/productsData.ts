@@ -17,7 +17,7 @@ export interface Mode {
 export interface Product {
   slug: string;
   title: string;
-  status: 'up-to-date' | 'expired';
+  status: 'up-to-date' | 'expired' | 'in-maintenance' | 'soon';
   tags: string[];
   description: string;
   warnings: string;
@@ -157,7 +157,7 @@ designed for players who demand both power and security.`,
   {
     slug: 'secret-lab',
     title: 'Secret Lab: SL',
-    status: 'expired',
+    status: 'soon',
     tags: [],
     description: `Coming soon.`,
     warnings: ``,

@@ -7,7 +7,7 @@ import gsap from 'gsap';
 interface ProductCardProps {
   image: string;
   title: string;
-  status: 'up-to-date' | 'maintance' | 'expired';
+  status: 'up-to-date' | 'maintance' | 'expired' | 'soon' | 'in-maintenance';
   price: string;
   onPurchase?: () => void;
   statusLabel?: string;
@@ -29,6 +29,16 @@ const statusConfig = {
     className: styles.statusExpired,
     label: 'Expired',
   },
+  soon: {
+    icon: 'clock',
+    className: styles.statusSoon,
+    label: 'Coming Soon',
+  },
+  'in-maintenance': {
+    icon: 'maintance',
+    className: styles.statusInMaintenance,
+    label: 'In Maintenance',
+  },
 } as const;
 
 export function ProductCard({
@@ -39,7 +49,11 @@ export function ProductCard({
   onPurchase,
   statusLabel,
 }: ProductCardProps) {
-  const config = statusConfig[status];
+  const config = statusConfig[status] ?? {
+    icon: 'error',
+    className: styles.statusExpired,
+    label: 'Unknown',
+  };
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

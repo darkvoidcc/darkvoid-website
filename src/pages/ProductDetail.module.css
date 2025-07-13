@@ -80,6 +80,21 @@ body {
   background: rgba(52, 199, 89, 0.2);
 }
 
+.statusExpired {
+  color: #ff3b30;
+  background: rgba(255, 59, 48, 0.2);
+}
+
+.statusInMaintenance {
+  color: #ffcc00;
+  background-color: rgba(255, 204, 0, 0.2);
+}
+
+.statusSoon {
+  color: #7f7f7f;
+  background-color: rgba(127, 127, 127, 0.2);
+}
+
 .tags {
   margin-top: clamp(12px, 2vw, 32px);
   display: flex;
@@ -214,7 +229,6 @@ body {
     0px 7px 16px rgba(231, 225, 240, 0.1);
 }
 
-/* Terms */
 .terms {
   align-self: center;
   margin-top: clamp(12px, 2vw, 32px);
@@ -224,7 +238,6 @@ body {
 
 /* ========== Responsive ========== */
 
-/* Tablet / small desktop */
 @media (max-width: 1024px) {
   .container {
     padding: clamp(16px, 2vw, 32px);

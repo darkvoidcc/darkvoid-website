@@ -118,9 +118,16 @@ export default function ProductDetail({
             </header>
             <span
               className={
-                product.status === 'expired'
-                  ? `${styles.status} ${styles.statusExpired}`
-                  : styles.status
+                `${styles.status} ` +
+                (product.status === 'expired'
+                  ? styles.statusExpired
+                  : product.status === 'up-to-date'
+                  ? styles.statusUpToDate
+                  : product.status === 'soon'
+                  ? styles.statusSoon
+                  : product.status === 'in-maintenance'
+                  ? styles.statusInMaintenance
+                  : '')
               }>
               {product.status.toUpperCase()}
             </span>
