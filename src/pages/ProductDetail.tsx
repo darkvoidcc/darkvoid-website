@@ -98,11 +98,31 @@ export default function ProductDetail({
     return () => ctx.revert();
   }, []);
 
+  const selectedMode = modes.find((m) => m.name === selectedModeName);
+  const [animatedPrice, setAnimatedPrice] = useState(selectedMode?.price ?? 0);
+
+  useEffect(() => {
+    if (!selectedMode) return;
+    const obj = { val: animatedPrice };
+    const target = selectedMode.price;
+    const duration = 1.5;
+    const tween = gsap.to(obj, {
+      val: target,
+      duration,
+      ease: 'power2.out',
+      onUpdate: () => setAnimatedPrice(obj.val),
+    });
+    return () => {
+      tween.kill();
+    };
+  }, [selectedMode, animatedPrice]);
+
+  const handlePayment = () => {
+    if (selectedMode) window.location.href = selectedMode.checkoutUrl;
+  };
+
   if (!slug) return <div>Loading...</div>;
   if (!product) return <div>Couldn't find product…</div>;
-
-  const selectedMode = modes.find((m) => m.name === selectedModeName)!;
-  const handlePayment = () => (window.location.href = selectedMode.checkoutUrl);
 
   return (
     <main
@@ -206,7 +226,7 @@ export default function ProductDetail({
             color="var(--text-color)"
           />
 
-          <p className={styles.total}>€{selectedMode.price.toFixed(2)}</p>
+          <p className={styles.total}>€{animatedPrice.toFixed(2)}</p>
           <Button
             className={styles.paymentBtn}
             onClick={handlePayment}>
