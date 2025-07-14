@@ -32,8 +32,6 @@ function AppContent() {
     setBgImage(gradient);
   }, [location.pathname]);
 
-  const isResource = location.pathname.startsWith('/resources');
-
   return (
     <div
       className="App"
