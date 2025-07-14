@@ -71,7 +71,7 @@ export default function AntiBanGuide() {
             title="Having Trouble?"
             description="If you encounter problems with our software — leave a ticket on our Discord server and we will help you."
             buttonText="Join Our Discord Server"
-            buttonUrl="https://discord.gg/darkvoid"
+            buttonUrl="https://discord.gg/ZDBDDYqJ5y"
             buttonIcon={<DiscordIcon />}
           />
 
@@ -80,7 +80,7 @@ export default function AntiBanGuide() {
             title="We also have Telegram"
             description="If you encounter problems with our software — leave a ticket on our Discord server and we will help you."
             buttonText="Join Our Telegram Group"
-            buttonUrl="https://t.me/darkvoid"
+            buttonUrl="https://t.me/+FgcJNzKZVIk2NTQy"
             buttonIcon={<TelegramIcon />}
           />
         </div>
