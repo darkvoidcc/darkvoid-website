@@ -56,16 +56,12 @@ body {
   font-size: 16px;
 }
 
-.loader-cell {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-2);
-}
 .loader-icon {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
-  border-radius: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
 }
 
 .header-icon {
