@@ -29,6 +29,31 @@ export interface Product {
 
 export const products: Product[] = [
   {
+    slug: 'secret-lab',
+    title: 'Secret Lab: SL',
+    status: 'soon',
+    tags: [],
+    description: `Coming soon.`,
+    warnings: ``,
+    supported: [],
+    thumbnail: SecretLabImage,
+    preview: [],
+    modes: [
+      {
+        name: 'Scout Mode',
+        desc: '3-day full access.',
+        price: 4,
+        checkoutUrl: '',
+      },
+      {
+        name: 'Operator Mode',
+        desc: '30-day full access.',
+        price: 20,
+        checkoutUrl: '',
+      },
+    ],
+  },
+  {
     slug: 'valorant',
     title: 'Valorant',
     status: 'up-to-date',
@@ -150,31 +175,6 @@ designed for players who demand both power and security.`,
         name: 'Operator Mode',
         desc: '30-day full access.',
         price: 40,
-        checkoutUrl: '',
-      },
-    ],
-  },
-  {
-    slug: 'secret-lab',
-    title: 'Secret Lab: SL',
-    status: 'soon',
-    tags: [],
-    description: `Coming soon.`,
-    warnings: ``,
-    supported: [],
-    thumbnail: SecretLabImage,
-    preview: [],
-    modes: [
-      {
-        name: 'Scout Mode',
-        desc: '3-day full access.',
-        price: 4,
-        checkoutUrl: '',
-      },
-      {
-        name: 'Operator Mode',
-        desc: '30-day full access.',
-        price: 20,
         checkoutUrl: '',
       },
     ],
