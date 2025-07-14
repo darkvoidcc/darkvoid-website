@@ -29,11 +29,7 @@ function AppContent() {
   useEffect(() => {
     if (location.pathname.startsWith('/products/')) return;
 
-    if (location.pathname.startsWith('/resources')) {
-      setBgImage('');
-    } else {
-      setBgImage(gradient);
-    }
+    setBgImage(gradient);
   }, [location.pathname]);
 
   const isResource = location.pathname.startsWith('/resources');
@@ -45,10 +41,7 @@ function AppContent() {
       <div
         className="bg-layer"
         style={{
-          background: isResource ? '#000' : undefined,
-          backgroundImage: isResource
-            ? undefined
-            : `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${bgImage})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
