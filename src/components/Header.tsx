@@ -9,24 +9,17 @@ export function Header() {
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Create a GSAP context scoped to this header
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         defaults: { duration: 0.6, ease: 'power1.out' },
       });
 
-      // Animate logo in
       tl.from(`.${styles.logoIcon}`, { opacity: 0, y: -20 });
 
-      // Animate each link with a small stagger
-      tl.from(
-        `.${styles.link}`,
-        { opacity: 0, y: -10, stagger: 0.2 },
-        '-=0.4', // overlap with the logo animation
-      );
+      tl.from(`.${styles.link}`, { opacity: 0, y: -10, stagger: 0.2 }, '-=0.4');
     }, headerRef);
 
-    return () => ctx.revert(); // cleanup on unmount
+    return () => ctx.revert();
   }, []);
 
   return (
