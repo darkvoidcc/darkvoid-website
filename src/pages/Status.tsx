@@ -1,5 +1,4 @@
-// src/pages/Status.tsx
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { Icon, IconName } from '../components/Icon';
 import LoaderVL from '../assets/images/loader-VL.webp';
 import LoaderSL from '../assets/images/loader-SL.webp';
