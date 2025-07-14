@@ -24,7 +24,7 @@
   justify-content: space-between;
   align-items: center;
   font-family: var(--emphasis), sans-serif;
-  font-size: var(--subtitle3-font-size);
+  font-size: 1rem;
   color: var(--text-color-secondary);
   background: transparent;
   border: none;
