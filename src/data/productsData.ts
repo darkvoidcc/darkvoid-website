@@ -58,10 +58,11 @@ export const products: Product[] = [
     title: 'Valorant',
     status: 'up-to-date',
     tags: ['BOX ESP', 'SKELETON ESP'],
-    description: `Experience Valorant like never before with our carefully crafted cheat,
-designed for players who demand both power and security.`,
+    description: `Experience Valorant like never before with our carefully crafted cheat, designed for players who demand stealth and safety over features.`,
     warnings: `To better understand bans, please join our Discord community and read our #anti-ban-guide.`,
-    supported: ['22H2', '23H2', '24H2'],
+    supported: [
+      'Compatible only with Windows 11 24H2, with VBS and HVCI required to be enabled.',
+    ],
     thumbnail: ValorantImage,
     preview: [preview1, preview2],
     modes: [
