@@ -69,7 +69,7 @@ function AccordionItem({
           height: 0,
           opacity: 0,
           duration: 0.4,
-          ease: 'power2.in',
+          ease: 'power2.out',
           pointerEvents: 'none',
         },
       );
