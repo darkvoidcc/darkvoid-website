@@ -48,13 +48,19 @@ function AccordionItem({
       const fullHeight = el.scrollHeight;
       gsap.fromTo(
         el,
-        { height: 0, opacity: 0, pointerEvents: 'none' },
+        {
+          height: 0,
+          opacity: 0,
+          pointerEvents: 'none',
+          padding: '0 1rem',
+        },
         {
           height: fullHeight,
           opacity: 1,
           duration: 0.5,
           ease: 'power2.out',
           pointerEvents: 'auto',
+          padding: '0.75rem 1rem',
           onComplete: () => {
             el.style.height = 'auto';
           },
@@ -64,7 +70,13 @@ function AccordionItem({
       const currentHeight = el.scrollHeight;
       gsap.fromTo(
         el,
-        { height: currentHeight, opacity: 1, pointerEvents: 'auto' },
+        {
+          height: currentHeight,
+          opacity: 1,
+          pointerEvents: 'auto',
+          paddingRight: '1rem',
+          paddingLeft: '1rem',
+        },
         {
           height: 0,
           opacity: 0,
