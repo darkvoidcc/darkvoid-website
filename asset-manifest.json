@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/darkvoid-website/static/css/main.0d372c37.css",
-    "main.js": "/darkvoid-website/static/js/main.506ce44b.js",
+    "main.js": "/darkvoid-website/static/js/main.983d78c9.js",
     "static/js/453.aef50261.chunk.js": "/darkvoid-website/static/js/453.aef50261.chunk.js",
     "static/media/intel.svg": "/darkvoid-website/static/media/intel.2aa20216030acad0c94eb18d475c068d.svg",
     "static/media/valorant_preview1.png": "/darkvoid-website/static/media/valorant_preview1.5123135d7a67716e6059.png",
@@ -64,11 +64,11 @@
     "static/media/loader-VL.webp": "/darkvoid-website/static/media/loader-VL.7d7b36550f0649333a4c.webp",
     "static/media/Activity Icon.svg": "/darkvoid-website/static/media/Activity Icon.4f56f83d748acb0672e2fb3590cff640.svg",
     "main.0d372c37.css.map": "/darkvoid-website/static/css/main.0d372c37.css.map",
-    "main.506ce44b.js.map": "/darkvoid-website/static/js/main.506ce44b.js.map",
+    "main.983d78c9.js.map": "/darkvoid-website/static/js/main.983d78c9.js.map",
     "453.aef50261.chunk.js.map": "/darkvoid-website/static/js/453.aef50261.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0d372c37.css",
-    "static/js/main.506ce44b.js"
+    "static/js/main.983d78c9.js"
   ]
 }
