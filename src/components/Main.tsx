@@ -55,7 +55,7 @@ export function Main(): JSX.Element {
           The safest gaming experience_
         </h1>
         <p className={`${styles.mainTextP} txt-body`}>
-          Darkvoid — private software for those committed to forever-lasting
+          DarkVoid — private software for those committed to forever-lasting
           accounts.
         </p>
       </div>
