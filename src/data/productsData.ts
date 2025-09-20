@@ -56,7 +56,7 @@ export const products: Product[] = [
   {
     slug: 'valorant',
     title: 'Valorant',
-    status: 'up-to-date',
+    status: 'soon',
     tags: ['BOX ESP', 'SKELETON ESP'],
     description: `Experience Valorant like never before with our carefully crafted cheat, designed for players who demand stealth and safety over features.`,
     warnings: `To better understand bans, please join our Discord community and read our #anti-ban-guide.`,
