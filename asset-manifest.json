@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.90e71847.css",
-    "main.js": "/static/js/main.ce3c1956.js",
+    "main.js": "/static/js/main.1839664f.js",
     "static/js/453.aef50261.chunk.js": "/static/js/453.aef50261.chunk.js",
     "static/media/intel.svg": "/static/media/intel.2aa20216030acad0c94eb18d475c068d.svg",
     "static/media/valorant_preview1.png": "/static/media/valorant_preview1.5123135d7a67716e6059.png",
@@ -64,11 +64,11 @@
     "static/media/loader-VL.webp": "/static/media/loader-VL.7d7b36550f0649333a4c.webp",
     "static/media/Activity Icon.svg": "/static/media/Activity Icon.4f56f83d748acb0672e2fb3590cff640.svg",
     "main.90e71847.css.map": "/static/css/main.90e71847.css.map",
-    "main.ce3c1956.js.map": "/static/js/main.ce3c1956.js.map",
+    "main.1839664f.js.map": "/static/js/main.1839664f.js.map",
     "453.aef50261.chunk.js.map": "/static/js/453.aef50261.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.90e71847.css",
-    "static/js/main.ce3c1956.js"
+    "static/js/main.1839664f.js"
   ]
 }
