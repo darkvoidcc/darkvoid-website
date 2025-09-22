@@ -21,7 +21,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build & Deploy
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
