@@ -115,7 +115,7 @@ export default function FAQ() {
           <ResourcePromo
             icon={<TelegramIcon />}
             title="We also have Telegram"
-            description="If you encounter problems with our software — leave a ticket on our Discord server and we will help you."
+            description="If you encounter problems with our software — leave a ticket on our Telegram group and we will help you."
             buttonText="Join Our Telegram Group"
             buttonUrl="https://t.me/+1VGWICTDow44YzJi"
             buttonIcon={<TelegramIcon />}
