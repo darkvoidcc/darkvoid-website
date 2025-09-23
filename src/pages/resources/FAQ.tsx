@@ -36,7 +36,7 @@ const faqs: FAQItem[] = [
         we recommend you to join our discord community where you can check our
         "reviews" text channel to see other customers reviews of our products.
         Thus you can also ask other customers about it, and interact with the
-        whole community of darkvoid, and this way you will get an unbiased
+        whole community of DarkVoid, and this way you will get an unbiased
         answer. We know that even this is not enough for some but unfortunately
         there is no other ways for us to further prove our safety.
       </p>
@@ -93,11 +93,11 @@ export default function FAQ() {
             <span className={styles.subtitle}>Frequently Asked Questions</span>
           </h1>
           <p className="txt-desc">
-            Welcome to Darkvoid’s FAQ. Here you’ll find detailed answers to the
+            Welcome to DarkVoid’s FAQ. Here you’ll find detailed answers to the
             questions we hear most—everything from safety and feature overviews
             to payment methods and license extensions. This section is designed
             to give you clear, concise information so you can get the most out
-            of your Darkvoid experience. If you don’t see what you’re looking
+            of your DarkVoid experience. If you don’t see what you’re looking
             for, our support channels are just a click away.
           </p>
           <FAQSection items={faqs} />
