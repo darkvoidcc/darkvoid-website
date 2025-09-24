@@ -137,7 +137,7 @@ export default function Status() {
                     name="products"
                     className="header-icon"
                   />{' '}
-                  Loader
+                  Product
                 </th>
                 <th>
                   <Icon
