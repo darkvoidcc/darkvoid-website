@@ -44,9 +44,9 @@ const loaders: Loader[] = [
   {
     name: 'Valorant',
     icon: LoaderVL,
-    status: 'soon',
-    lastDetection: '-----',
-    releaseDate: '-- -- ----',
+    status: 'up-to-date',
+    lastDetection: 'Never',
+    releaseDate: '24-09-2025',
   },
   {
     name: 'SCP: Secret Lab',
